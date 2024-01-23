@@ -186,411 +186,382 @@ const FancyNumber = () => {
                       </div>
                     </Td>
                   </Tr>
-                  <Container fluid>
+                  {/* <Container fluid>
                     <Row>
-                      <Col md={12}>
-                        <Modal show={show} onHide={handleClose}>
-                          <Modal.Header closeButton>
-                            <Modal.Title>Edit FancyNumber</Modal.Title>
-                          </Modal.Header>
-                          <Modal.Body>
-                            <Form onSubmit={handleEditButtonSubmit}>
-                              <Form.Group
-                                className="mb-3"
-                                controlId="formBasicEmail"
-                              >
-                                <Form.Label>Phone Number</Form.Label>
-                                <Form.Control
-                                  type="number"
-                                  placeholder={`${
-                                    selectedItem && selectedItem.number
-                                  }`}
-                                  onChange={(e) =>
-                                    setNumberUpdate(e.target.value)
-                                  }
-                                />
-                              </Form.Group>
+                      <Col md={12}> */}
 
-                              <Form.Group
-                                className="mb-3"
-                                controlId="formBasicPassword"
-                              >
-                                <Form.Label>New Price</Form.Label>
-                                <Form.Control
-                                  type="number"
-                                  placeholder={`${
-                                    selectedItem && selectedItem.newPrice
-                                  }`}
-                                  onChange={(e) =>
-                                    setNewPriceUpdate(e.target.value)
-                                  }
-                                />
-                              </Form.Group>
-                              <Form.Group
-                                className="mb-3"
-                                controlId="formBasicPassword"
-                              >
-                                <Form.Label>Old Price</Form.Label>
-                                <Form.Control
-                                  type="number"
-                                  placeholder={`${
-                                    selectedItem && selectedItem.oldPrice
-                                  }`}
-                                  onChange={(e) =>
-                                    setOldPriceUpdate(e.target.value)
-                                  }
-                                />
-                              </Form.Group>
-                              <Form.Group
-                                className="mb-3"
-                                controlId="formBasicPassword"
-                              >
-                                <Form.Label>Split Number</Form.Label>
-                                <Form.Control
-                                  type="number"
-                                  placeholder={`${
-                                    selectedItem && selectedItem?.splitNumber
-                                  }`}
-                                  onChange={(e) =>
-                                    setSplitNumberUpdate(e.target.value)
-                                  }
-                                />
-                              </Form.Group>
-
-                              <div>
-                                <span>selected category</span>
-                                {selectedItem &&
-                                  selectedItem?.category?.map((item, i) => (
-                                    <span key={i}>
-                                      <ul
-                                        style={{
-                                          margin: "0.2vw 0vw",
-                                          fontSize: "0.6vw",
-                                        }}
-                                      >
-                                        <li>{item}</li>
-                                      </ul>
-                                    </span>
-                                  ))}
-                              </div>
-
-                              <div
-                                style={{
-                                  margin: "0.2vw 0vw",
-                                  fontSize: `${
-                                    size.width < 600 ? "2vw" : "0.6vw"
-                                  }`,
-                                }}
-                              >
-                                <Row>
-                                  <Col md={3} xs={3}>
-                                    <Form.Check // prettier-ignore
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`WITHOUT 2,4 & 8`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`WITHOUT 2,4 & 8`}
-                                    />
-                                    <Form.Check // prettier-ignore
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`HIGH RANGE NUMBER`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`HIGH RANGE NUMBER`}
-                                    />
-                                    <Form.Check // prettier-ignore
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`MIRROR NUMBER`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`MIRROR NUMBER`}
-                                    />
-                                    <Form.Check // prettier-ignore 2
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`XXX-YYY`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`XXX-YYY`}
-                                    />
-                                    <Form.Check // prettier-ignore
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`ABCD-ABCD`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`ABCD-ABCD`}
-                                    />
-                                    <Form.Check // prettier-ignore
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`786 SPECIAL`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`786 SPECIAL`}
-                                    />
-                                    <Form.Check // prettier-ignore 3
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`00X00 & 00XY00`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`00X00 & 00XY00`}
-                                    />
-                                    <Form.Check // prettier-ignore 2
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`ENDING HEXA`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`ENDING HEXA`}
-                                    />
-                                    <Form.Check // prettier-ignore
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`MIDDLE HEXA`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`MIDDLE HEXA`}
-                                    />
-                                    <Form.Check // prettier-ignore
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`ENDING PENTA`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`ENDING PENTA`}
-                                    />
-                                    <Form.Check // prettier-ignore
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`ENDING 000XY`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`ENDING 000XY`}
-                                    />
-                                  </Col>
-                                  <Col md={3} xs={3}>
-                                    <Form.Check // prettier-ignore
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`SEMI-MIRROR NUMBER`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`SEMI-MIRROR NUMBER`}
-                                    />
-                                    <Form.Check // prettier-ignore
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`XY-XY-XY-XY`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`XY-XY-XY-XY`}
-                                    />
-                                    <Form.Check // prettier-ignore
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`SYMMETRY NUMBER`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`SYMMETRY NUMBER`}
-                                    />
-                                    <Form.Check // prettier-ignore
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`XYXY-ABAB`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`XYXY-ABAB`}
-                                    />
-                                    <Form.Check // prettier-ignore
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`3 DIGIT NUMBER`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`3 DIGIT NUMBER`}
-                                    />
-                                    <Form.Check // prettier-ignore
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`2 DIGIT NUMBER`}
-                                    />
-                                    <Form.Check // prettier-ignore 3
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`MIDDLE PENTA`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`MIDDLE PENTA`}
-                                    />
-                                    <Form.Check // prettier-ignore
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`ENDING TETRA`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`ENDING TETRA`}
-                                    />
-                                    <Form.Check // prettier-ignore
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`MIDDLE TETRA`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`MIDDLE TETRA`}
-                                    />
-                                    <Form.Check // prettier-ignore
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`ENDING XXX`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`ENDING XXX`}
-                                    />
-                                  </Col>
-                                  <Col md={3} xs={3}>
-                                    <Form.Check // prettier-ignore
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`FANCY NUMBER`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`FANCY NUMBER`}
-                                    />
-                                    <Form.Check // prettier-ignore
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`LOW COST NUMBERS`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`LOW COST NUMBERS`}
-                                    />
-                                    <Form.Check // prettier-ignore
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`DOUBLING NUMBER`}
-                                    />
-                                    <Form.Check // prettier-ignore
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`ENDING XYZ-XYZ`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`ENDING XYZ-XYZ`}
-                                    />
-                                    <Form.Check // prettier-ignore
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`SPECIAL DIGIT NUMBER`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`SPECIAL DIGIT NUMBER`}
-                                    />
-                                    <Form.Check // prettier-ignore
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`XY-XY`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`XY-XY`}
-                                    />
-                                    <Form.Check // prettier-ignore 3
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`000000 NUMBERS`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`000000 NUMBERS`}
-                                    />
-                                    <Form.Check // prettier-ignore
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`00000 NUMBERS`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`00000 NUMBERS`}
-                                    />
-                                    <Form.Check // prettier-ignore
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`ENDING 0000`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`ENDING 0000`}
-                                    />
-                                    <Form.Check // prettier-ignore
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`ENDING 0000X`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`ENDING 0000X`}
-                                    />
-                                  </Col>
-                                  <Col md={3} xs={3}>
-                                    <Form.Check // prettier-ignore
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`ENDING XY-XY-XY`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`ENDING XY-XY-XY`}
-                                    />
-                                    <Form.Check // prettier-ignore
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`MIDDLE XY-XY-XY`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`MIDDLE XY-XY-XY`}
-                                    />
-                                    <Form.Check // prettier-ignore
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`STARTING XY-XY-XY`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`STARTING XY-XY-XY`}
-                                    />
-                                    <Form.Check // prettier-ignore
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`ABCD-XY-ABCD`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`ABCD-XY-ABCD`}
-                                    />
-                                    <Form.Check // prettier-ignore
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`COUNTING NUMBER`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`COUNTING NUMBER`}
-                                    />
-                                    <Form.Check // prettier-ignore
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`STARTING XYZ-XYZ`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`STARTING XYZ-XYZ`}
-                                    />
-                                    <Form.Check // prettier-ignore 3
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`ENDING 0000XY`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`ENDING 0000XY`}
-                                    />
-                                    <Form.Check // prettier-ignore
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`MIDDLE 0000`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`MIDDLE 0000`}
-                                    />
-                                    <Form.Check // prettier-ignore
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`ENDING 000`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`ENDING 000`}
-                                    />
-                                    <Form.Check // prettier-ignore
-                                      type={"checkbox"}
-                                      id={`default-${"checkbox"}`}
-                                      label={`ENDING 000X`}
-                                      onChange={getHandleChangeCheckedValue}
-                                      name={`ENDING 000X`}
-                                    />
-                                  </Col>
-                                </Row>
-                              </div>
-
-                              <Button variant="primary" type="submit">
-                                Submit
-                              </Button>
-                            </Form>
-                            {loading && <Loading loading={loading} />}
-                          </Modal.Body>
-                        </Modal>
-                      </Col>
+                  {/* </Col>
                     </Row>
-                  </Container>
+                  </Container> */}
                 </Tbody>
               </>
             )))}
       </Table>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Edit FancyNumber</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form onSubmit={handleEditButtonSubmit}>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Phone Number</Form.Label>
+              <Form.Control
+                type="number"
+                placeholder={`${selectedItem && selectedItem.number}`}
+                onChange={(e) => setNumberUpdate(e.target.value)}
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Label>New Price</Form.Label>
+              <Form.Control
+                type="number"
+                placeholder={`${selectedItem && selectedItem.newPrice}`}
+                onChange={(e) => setNewPriceUpdate(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Label>Old Price</Form.Label>
+              <Form.Control
+                type="number"
+                placeholder={`${selectedItem && selectedItem.oldPrice}`}
+                onChange={(e) => setOldPriceUpdate(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Label>Split Number</Form.Label>
+              <Form.Control
+                type="number"
+                placeholder={`${selectedItem && selectedItem?.splitNumber}`}
+                onChange={(e) => setSplitNumberUpdate(e.target.value)}
+              />
+            </Form.Group>
+
+            <div>
+              <span>selected category</span>
+              {selectedItem &&
+                selectedItem?.category?.map((item, i) => (
+                  <span key={i}>
+                    <ul
+                      style={{
+                        margin: "0.2vw 0vw",
+                        fontSize: "0.6vw",
+                      }}
+                    >
+                      <li>{item}</li>
+                    </ul>
+                  </span>
+                ))}
+            </div>
+
+            <div
+              style={{
+                margin: "0.2vw 0vw",
+                fontSize: `${size.width < 600 ? "2vw" : "0.6vw"}`,
+              }}
+            >
+              <Row>
+                <Col md={3} xs={3}>
+                  <Form.Check // prettier-ignore
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`WITHOUT 2,4 & 8`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`WITHOUT 2,4 & 8`}
+                  />
+                  <Form.Check // prettier-ignore
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`HIGH RANGE NUMBER`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`HIGH RANGE NUMBER`}
+                  />
+                  <Form.Check // prettier-ignore
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`MIRROR NUMBER`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`MIRROR NUMBER`}
+                  />
+                  <Form.Check // prettier-ignore 2
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`XXX-YYY`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`XXX-YYY`}
+                  />
+                  <Form.Check // prettier-ignore
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`ABCD-ABCD`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`ABCD-ABCD`}
+                  />
+                  <Form.Check // prettier-ignore
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`786 SPECIAL`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`786 SPECIAL`}
+                  />
+                  <Form.Check // prettier-ignore 3
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`00X00 & 00XY00`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`00X00 & 00XY00`}
+                  />
+                  <Form.Check // prettier-ignore 2
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`ENDING HEXA`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`ENDING HEXA`}
+                  />
+                  <Form.Check // prettier-ignore
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`MIDDLE HEXA`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`MIDDLE HEXA`}
+                  />
+                  <Form.Check // prettier-ignore
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`ENDING PENTA`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`ENDING PENTA`}
+                  />
+                  <Form.Check // prettier-ignore
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`ENDING 000XY`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`ENDING 000XY`}
+                  />
+                </Col>
+                <Col md={3} xs={3}>
+                  <Form.Check // prettier-ignore
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`SEMI-MIRROR NUMBER`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`SEMI-MIRROR NUMBER`}
+                  />
+                  <Form.Check // prettier-ignore
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`XY-XY-XY-XY`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`XY-XY-XY-XY`}
+                  />
+                  <Form.Check // prettier-ignore
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`SYMMETRY NUMBER`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`SYMMETRY NUMBER`}
+                  />
+                  <Form.Check // prettier-ignore
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`XYXY-ABAB`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`XYXY-ABAB`}
+                  />
+                  <Form.Check // prettier-ignore
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`3 DIGIT NUMBER`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`3 DIGIT NUMBER`}
+                  />
+                  <Form.Check // prettier-ignore
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`2 DIGIT NUMBER`}
+                  />
+                  <Form.Check // prettier-ignore 3
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`MIDDLE PENTA`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`MIDDLE PENTA`}
+                  />
+                  <Form.Check // prettier-ignore
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`ENDING TETRA`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`ENDING TETRA`}
+                  />
+                  <Form.Check // prettier-ignore
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`MIDDLE TETRA`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`MIDDLE TETRA`}
+                  />
+                  <Form.Check // prettier-ignore
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`ENDING XXX`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`ENDING XXX`}
+                  />
+                </Col>
+                <Col md={3} xs={3}>
+                  <Form.Check // prettier-ignore
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`FANCY NUMBER`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`FANCY NUMBER`}
+                  />
+                  <Form.Check // prettier-ignore
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`LOW COST NUMBERS`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`LOW COST NUMBERS`}
+                  />
+                  <Form.Check // prettier-ignore
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`DOUBLING NUMBER`}
+                  />
+                  <Form.Check // prettier-ignore
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`ENDING XYZ-XYZ`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`ENDING XYZ-XYZ`}
+                  />
+                  <Form.Check // prettier-ignore
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`SPECIAL DIGIT NUMBER`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`SPECIAL DIGIT NUMBER`}
+                  />
+                  <Form.Check // prettier-ignore
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`XY-XY`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`XY-XY`}
+                  />
+                  <Form.Check // prettier-ignore 3
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`000000 NUMBERS`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`000000 NUMBERS`}
+                  />
+                  <Form.Check // prettier-ignore
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`00000 NUMBERS`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`00000 NUMBERS`}
+                  />
+                  <Form.Check // prettier-ignore
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`ENDING 0000`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`ENDING 0000`}
+                  />
+                  <Form.Check // prettier-ignore
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`ENDING 0000X`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`ENDING 0000X`}
+                  />
+                </Col>
+                <Col md={3} xs={3}>
+                  <Form.Check // prettier-ignore
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`ENDING XY-XY-XY`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`ENDING XY-XY-XY`}
+                  />
+                  <Form.Check // prettier-ignore
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`MIDDLE XY-XY-XY`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`MIDDLE XY-XY-XY`}
+                  />
+                  <Form.Check // prettier-ignore
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`STARTING XY-XY-XY`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`STARTING XY-XY-XY`}
+                  />
+                  <Form.Check // prettier-ignore
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`ABCD-XY-ABCD`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`ABCD-XY-ABCD`}
+                  />
+                  <Form.Check // prettier-ignore
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`COUNTING NUMBER`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`COUNTING NUMBER`}
+                  />
+                  <Form.Check // prettier-ignore
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`STARTING XYZ-XYZ`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`STARTING XYZ-XYZ`}
+                  />
+                  <Form.Check // prettier-ignore 3
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`ENDING 0000XY`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`ENDING 0000XY`}
+                  />
+                  <Form.Check // prettier-ignore
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`MIDDLE 0000`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`MIDDLE 0000`}
+                  />
+                  <Form.Check // prettier-ignore
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`ENDING 000`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`ENDING 000`}
+                  />
+                  <Form.Check // prettier-ignore
+                    type={"checkbox"}
+                    id={`default-${"checkbox"}`}
+                    label={`ENDING 000X`}
+                    onChange={getHandleChangeCheckedValue}
+                    name={`ENDING 000X`}
+                  />
+                </Col>
+              </Row>
+            </div>
+
+            <Button variant="primary" type="submit">
+              Submit
+            </Button>
+          </Form>
+          {loading && <Loading loading={loading} />}
+        </Modal.Body>
+      </Modal>
       <Modal show={showDetails} onHide={handleCloseDetails}>
         <Modal.Header closeButton>
           <Modal.Title>{numberDetails?.number}</Modal.Title>

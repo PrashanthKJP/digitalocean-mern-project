@@ -15,7 +15,7 @@ const AdminPanel = () => {
 
   return (
     <>
-      <Container>
+      <Container fluid>
         <h1 className="text-center bg-dark text-light p-2">Admin Panel</h1>
         <Helmet>
           <title>Fancy Number Admin Panel</title>
