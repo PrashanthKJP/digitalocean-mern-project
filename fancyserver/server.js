@@ -3,7 +3,7 @@ const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
 
-//middleware
+//middleware has been updated
 app.use(express.json());
 
 app.use(cors());
