@@ -19,7 +19,11 @@ const addNumber = async (req, res) => {
     thridTimeSum,
     currentUserId,
     category,
-    splitNumber,
+    splitNumber1,
+    splitNumber2,
+    splitNumber3,
+    splitNumber4,
+    splitNumber5,
   } = req.body;
   const alredyAddedNumber = await numberModal.findOne({ number });
   const newNumber = new numberModal({
@@ -31,10 +35,14 @@ const addNumber = async (req, res) => {
     thridTimeSum,
     currentUserId,
     category,
-    splitNumber,
+    splitNumber1,
+    splitNumber2,
+    splitNumber3,
+    splitNumber4,
+    splitNumber5,
   });
   try {
-    if (!number || !newPrice || !currentUserId || !splitNumber) {
+    if (!number || !newPrice || !currentUserId) {
       return res
         .status(400)
         .json({ success: false, message: "Pless fill all fileds" });

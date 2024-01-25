@@ -6,16 +6,37 @@ import useWindowSize from "../coustomHook/useWindowSize";
 const DemoCard = ({ item, actions, width }) => {
   const size = useWindowSize();
 
-  function formatNumber(number, groupSize) {
+  function formatNumber(
+    number,
+    groupSize1,
+    groupSize2,
+    groupSize3,
+    groupSize4,
+    groupSize5
+  ) {
     const regexPattern = new RegExp(
-      `\\B(?=(\\d{${groupSize}}|\\d{${groupSize}})+(?!\\d))`,
-      "g"
+      `^(\\d{${groupSize1}})(\\d{${groupSize2}})(\\d{${groupSize3}})(\\d{${groupSize4}})(\\d{${groupSize5}})?$`
     );
-    return number.toString().replace(regexPattern, "-");
+    return number.replace(regexPattern, (_, g1, g2, g3, g4, g5) => {
+      const groups = [g1, g2, g3, g4, g5].filter(Boolean); // Filter out undefined (empty) groups
+      return groups.join("-");
+    });
   }
 
-  const dynamicGroupSize = item.splitNumber || 4;
-  const formattedNumber = formatNumber(item.number, dynamicGroupSize);
+  const dynamicGroupSize1 = parseInt(item.splitNumber1);
+  const dynamicGroupSize2 = parseInt(item.splitNumber2);
+  const dynamicGroupSize3 = parseInt(item.splitNumber3);
+  const dynamicGroupSize4 = parseInt(item.splitNumber4);
+  const dynamicGroupSize5 = parseInt(item.splitNumber5);
+
+  const formattedNumber = formatNumber(
+    item.number,
+    dynamicGroupSize1,
+    dynamicGroupSize2,
+    dynamicGroupSize3,
+    dynamicGroupSize4,
+    dynamicGroupSize5
+  );
 
   return (
     <>

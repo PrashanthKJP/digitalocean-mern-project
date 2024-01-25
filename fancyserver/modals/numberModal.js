@@ -28,7 +28,19 @@ const numberSchema = new mongoose.Schema(
     category: {
       type: [String],
     },
-    splitNumber: {
+    splitNumber1: {
+      type: Number,
+    },
+    splitNumber2: {
+      type: Number,
+    },
+    splitNumber3: {
+      type: Number,
+    },
+    splitNumber4: {
+      type: Number,
+    },
+    splitNumber5: {
       type: Number,
     },
   },
