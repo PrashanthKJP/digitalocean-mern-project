@@ -53,21 +53,6 @@ const advancedSearch = async (req, res) => {
   }
 };
 
-// const advancedSearch = async (req, res) => {
-//   try {
-//     const { anyWare, endWith, mustContain, notContain, startWith, sum, total } =
-//       req.query;
-
-//     const response = await numberModal.find(query);
-//     console.log(query);
-
-//     res.status(200).json(response);
-//   } catch (error) {
-//     res.status(500).json({ message: "something went wrong" });
-//     console.log(error);
-//   }
-// };
-
 const filterNumbers = async (req, res) => {
   try {
     const {

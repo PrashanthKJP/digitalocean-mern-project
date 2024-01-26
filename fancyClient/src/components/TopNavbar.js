@@ -25,18 +25,19 @@ const TopNavbar = () => {
         backgroundColor: "#689f38",
       }}
     >
+      <Navbar.Brand href="/" style={{ margin: "auto" }}>
+        Welcome to Lifetime Number
+      </Navbar.Brand>
       <Container fluid>
-        <Navbar.Brand href="/" style={{ margin: "auto" }}>
-          Welcome to Lifetime Number
-        </Navbar.Brand>
         <span
           style={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            fontWeight: "bold",
           }}
         >
-          <BiPhoneCall /> : 7019504346
+          <BiPhoneCall /> : 740007453
         </span>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">

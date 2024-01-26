@@ -289,8 +289,12 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
               )}
 
               {size.width < 600 && (
-                <Button variant="primary" onClick={handleShow}>
-                  open
+                <Button
+                  variant="primary"
+                  onClick={handleShow}
+                  style={{ width: "90vw", marginTop: "1vw" }}
+                >
+                  Add More Filter
                 </Button>
               )}
             </Col>
