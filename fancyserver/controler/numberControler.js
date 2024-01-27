@@ -84,7 +84,11 @@ const updateSingleNumber = async (req, res) => {
     thridTimeSum,
     currentUserId,
     category,
-    splitNumber,
+    splitNumber1,
+    splitNumber2,
+    splitNumber3,
+    splitNumber4,
+    splitNumber5,
   } = req.body;
   try {
     const currentItem = await numberModal.findByIdAndUpdate(
@@ -100,7 +104,11 @@ const updateSingleNumber = async (req, res) => {
         thridTimeSum,
         currentUserId,
         category,
-        splitNumber,
+        splitNumber1,
+        splitNumber2,
+        splitNumber3,
+        splitNumber4,
+        splitNumber5,
       },
       { new: true }
     );

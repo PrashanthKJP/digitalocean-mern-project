@@ -26,3 +26,17 @@ export const filterNumber = (filters) => async (dispatch) => {
     dispatch({ type: "GET_FILTER_FAIL", payload: error });
   }
 };
+export const filterNumberFancy = (filters) => async (dispatch) => {
+  dispatch({ type: "GET_FANCYFILTER_REQUEST" });
+  try {
+    const res = await axios.get(
+      `${BASE_URL}/api/filterNumberFancy?anyWare=${filters}`
+    );
+    dispatch({
+      type: "GET_FANCYFILTER_SUCCESS",
+      payload: res.data.reverse(),
+    });
+  } catch (error) {
+    dispatch({ type: "GET_FANCYFILTER_FAIL", payload: error });
+  }
+};

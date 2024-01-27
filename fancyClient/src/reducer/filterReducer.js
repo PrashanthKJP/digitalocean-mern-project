@@ -43,3 +43,25 @@ export const filterNumberReducer = (state = [], action) => {
       return state;
   }
 };
+export const filterNumberFancyReducer = (state = [], action) => {
+  switch (action.type) {
+    case "GET_FANCYFILTER_REQUEST":
+      return {
+        ...state,
+        loading: true,
+      };
+    case "GET_FANCYFILTER_SUCCESS":
+      return {
+        filterNumbers: action.payload,
+        loading: false,
+      };
+    case "GET_FANCYFILTER_FAIL":
+      return {
+        error: action.payload,
+        loading: false,
+      };
+
+    default:
+      return state;
+  }
+};

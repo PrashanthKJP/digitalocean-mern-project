@@ -1,5 +1,5 @@
 import React from "react";
-import Prashanth from "../images/Prashanth.JPG";
+import Prashanth from "../images/Prashanth.jpeg";
 import vinayaka from "../images/vinayaka.jpeg";
 import { Helmet } from "react-helmet";
 

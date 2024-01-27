@@ -37,7 +37,7 @@ const UserList = () => {
   };
 
   const handleCurrnetUserClick = () => {
-    alert("you cannot delete your account");
+    alert("you cannot delete Admin account");
   };
 
   useEffect(() => {
@@ -73,7 +73,7 @@ const UserList = () => {
                           justifyContent: "space-around",
                         }}
                       >
-                        {user._id === currentUser._id ? (
+                        {user.isAdmin ? (
                           <span>
                             <FaTrash
                               className="text-dark"

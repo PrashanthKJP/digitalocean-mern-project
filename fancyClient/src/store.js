@@ -16,6 +16,7 @@ import { cartReducer } from "./reducer/cartReducer";
 import {
   advanceNumberReducer,
   filterNumberReducer,
+  filterNumberFancyReducer,
 } from "./reducer/filterReducer";
 
 const cartItems = localStorage.getItem("cartItems")
@@ -38,6 +39,7 @@ const rootReducer = combineReducers({
   editNumberReducer,
   addOrderReducer,
   filterNumberReducer,
+  filterNumberFancyReducer,
 });
 
 const initialState = {

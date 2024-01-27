@@ -5,6 +5,7 @@ import {
   Col,
   Container,
   Form,
+  InputGroup,
   ListGroup,
   Modal,
   Row,
@@ -19,6 +20,9 @@ import Loading from "../components/Loading";
 import Error from "../components/Error";
 import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
 import useWindowSize from "../coustomHook/useWindowSize";
+import { BiSearch } from "react-icons/bi";
+import { filterNumber, filterNumberFancy } from "../action/filterNumberAction";
+import { useDebounce } from "../coustomHook/useDebounce";
 // import "table/dist/SuperResponsiveTableStyle.css ";
 
 const FancyNumber = () => {
@@ -31,7 +35,12 @@ const FancyNumber = () => {
   const [newPriceUpdate, setNewPriceUpdate] = useState(null);
   const [oldPriceUpdate, setOldPriceUpdate] = useState(null);
   const [categoryUpdate, setCategoryUpdate] = useState([]);
-  const [splitNumberUpdate, setSplitNumberUpdate] = useState(null);
+  const [splitNumberUpdate1, setSplitNumberUpdate1] = useState(null);
+  const [splitNumberUpdate2, setSplitNumberUpdate2] = useState(null);
+  const [splitNumberUpdate3, setSplitNumberUpdate3] = useState(null);
+  const [splitNumberUpdate4, setSplitNumberUpdate4] = useState(null);
+  const [splitNumberUpdate5, setSplitNumberUpdate5] = useState(null);
+  const [searchData, setSearchData] = useState(null);
 
   const dispatch = useDispatch();
 
@@ -45,6 +54,9 @@ const FancyNumber = () => {
 
   const handleCloseDetails = () => setShowDetails(false);
   const handleShowDetails = () => setShowDetails(true);
+  const { filterNumbers } = useSelector(
+    (state) => state.filterNumberFancyReducer
+  );
 
   const getNumberDetails = (number) => {
     setNumberDetails(number);
@@ -112,7 +124,11 @@ const FancyNumber = () => {
       secondTimeSum,
       thridTimeSum,
       category: categoryUpdate || selectedItem.category,
-      splitNumber: splitNumberUpdate || selectedItem.splitNumber,
+      splitNumber1: splitNumberUpdate1 || selectedItem.splitNumber1,
+      splitNumber2: splitNumberUpdate2 || selectedItem.splitNumber2,
+      splitNumber3: splitNumberUpdate3 || selectedItem.splitNumber3,
+      splitNumber4: splitNumberUpdate4 || selectedItem.splitNumber4,
+      splitNumber5: splitNumberUpdate5 || selectedItem.splitNumber5,
     };
 
     dispatch(editNumber(data, selectedItem._id));
@@ -122,11 +138,6 @@ const FancyNumber = () => {
 
   const size = useWindowSize();
 
-  useEffect(() => {
-    dispatch(getAllNumber());
-    console.log(selectedItem);
-  }, [dispatch, selectedItem, numberDetails]);
-
   const handleDeleteNumber = (id, item) => {
     dispatch(deleteNumber(id));
     const reloadedNumber = letestNumber.filter(
@@ -135,8 +146,35 @@ const FancyNumber = () => {
     setLetestNumber(reloadedNumber);
   };
 
+  const handleSubmitForFilterNumber = (e) => {
+    e.preventDefault();
+    dispatch(filterNumberFancy(searchData));
+  };
+
+  // dispatch(filterNumberFancy(deBouceValueForNumber));
+  useEffect(() => {
+    dispatch(getAllNumber());
+  }, [dispatch, selectedItem, numberDetails]);
+
   return (
     <Container fluid>
+      <Form className="d-flex mt-2" onSubmit={handleSubmitForFilterNumber}>
+        <InputGroup className="mb-3">
+          <Form.Control
+            type="number"
+            placeholder="Search"
+            onChange={(e) => setSearchData(e.target.value)}
+            style={{ background: "rgba(0, 0, 0, 0.1)", border: "none" }}
+          />
+
+          <Button
+            type="submit"
+            style={{ background: "rgba(0, 0, 0, 0.1)", border: "none" }}
+          >
+            <BiSearch />
+          </Button>
+        </InputGroup>
+      </Form>
       <Table striped="columns">
         <Thead>
           <Tr>
@@ -149,8 +187,8 @@ const FancyNumber = () => {
 
         {error && <Error error="Error While Fetching Number" />}
         {(loading && <Loading loading={loading} />) ||
-          (letestNumber &&
-            letestNumber.map((item, index) => (
+          (filterNumbers &&
+            filterNumbers.map((item, index) => (
               <>
                 <Tbody style={{ borderBottom: "0.1px solid gray" }} key={index}>
                   <Tr>
@@ -186,16 +224,49 @@ const FancyNumber = () => {
                       </div>
                     </Td>
                   </Tr>
-                  {/* <Container fluid>
-                    <Row>
-                      <Col md={12}> */}
-
-                  {/* </Col>
-                    </Row>
-                  </Container> */}
                 </Tbody>
               </>
             )))}
+        {letestNumber &&
+          letestNumber.map((item, index) => (
+            <>
+              <Tbody style={{ borderBottom: "0.1px solid gray" }} key={index}>
+                <Tr>
+                  <Td>{index + 1}</Td>
+                  <Td>{item.number}</Td>
+                  <Td>{format(item.updatedAt)}</Td>
+                  <Td>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-around",
+                      }}
+                    >
+                      <FaTrash
+                        className="text-danger"
+                        style={{ cursor: "pointer" }}
+                        onClick={() => {
+                          handleDeleteNumber(item._id, item);
+                        }}
+                      />
+
+                      <FcViewDetails
+                        className="text-danger"
+                        style={{ cursor: "pointer" }}
+                        onClick={() => getNumberDetails(item)}
+                      />
+
+                      <AiFillEdit
+                        className="text-success"
+                        style={{ cursor: "pointer" }}
+                        onClick={() => handleEditButtonClick(item)}
+                      />
+                    </div>
+                  </Td>
+                </Tr>
+              </Tbody>
+            </>
+          ))}
       </Table>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -232,8 +303,28 @@ const FancyNumber = () => {
               <Form.Label>Split Number</Form.Label>
               <Form.Control
                 type="number"
-                placeholder={`${selectedItem && selectedItem?.splitNumber}`}
-                onChange={(e) => setSplitNumberUpdate(e.target.value)}
+                placeholder={`${selectedItem && selectedItem?.splitNumber1}`}
+                onChange={(e) => setSplitNumberUpdate1(e.target.value)}
+              />
+              <Form.Control
+                type="number"
+                placeholder={`${selectedItem && selectedItem?.splitNumber2}`}
+                onChange={(e) => setSplitNumberUpdate2(e.target.value)}
+              />
+              <Form.Control
+                type="number"
+                placeholder={`${selectedItem && selectedItem?.splitNumber3}`}
+                onChange={(e) => setSplitNumberUpdate3(e.target.value)}
+              />
+              <Form.Control
+                type="number"
+                placeholder={`${selectedItem && selectedItem?.splitNumber4}`}
+                onChange={(e) => setSplitNumberUpdate4(e.target.value)}
+              />
+              <Form.Control
+                type="number"
+                placeholder={`${selectedItem && selectedItem?.splitNumber5}`}
+                onChange={(e) => setSplitNumberUpdate5(e.target.value)}
               />
             </Form.Group>
 

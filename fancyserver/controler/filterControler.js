@@ -133,7 +133,31 @@ const filterNumbers = async (req, res) => {
   }
 };
 
+const filterNumbersInFancy = async (req, res) => {
+  try {
+    const { anyWare } = req.query;
+
+    let query = {};
+
+    if (anyWare) {
+      query.number = { ...query.number, $regex: anyWare, $options: "i" };
+    }
+
+    const response = await numberModal.find(query);
+
+    if (response.length < 1) {
+      return res.status(200).json({ message: "No Data" });
+    }
+
+    res.status(200).json(response);
+  } catch (error) {
+    res.status(500).json({ message: "something went wrong" });
+    console.log(error);
+  }
+};
+
 module.exports = {
   advancedSearch,
   filterNumbers,
+  filterNumbersInFancy,
 };
