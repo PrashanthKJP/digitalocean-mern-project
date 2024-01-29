@@ -25,8 +25,13 @@ const TopNavbar = () => {
         backgroundColor: "#689f38",
       }}
     >
-      <Navbar.Brand href="/" style={{ margin: "auto" }}>
-        Welcome to Lifetime Number
+      <Navbar.Brand
+        href="/"
+        style={{
+          margin: "auto",
+        }}
+      >
+        Welcome To Permanent VIP Fancynumbers
       </Navbar.Brand>
       <Container fluid>
         <span
@@ -37,7 +42,7 @@ const TopNavbar = () => {
             fontWeight: "bold",
           }}
         >
-          <BiPhoneCall /> : 740007453
+          <BiPhoneCall /> : (+91) 74000074 53
         </span>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">

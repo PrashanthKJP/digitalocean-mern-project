@@ -154,6 +154,7 @@ const FancyNumber = () => {
   // dispatch(filterNumberFancy(deBouceValueForNumber));
   useEffect(() => {
     dispatch(getAllNumber());
+    console.log(numberDetails);
   }, [dispatch, selectedItem, numberDetails]);
 
   return (
@@ -175,6 +176,7 @@ const FancyNumber = () => {
           </Button>
         </InputGroup>
       </Form>
+
       <Table striped="columns">
         <Thead>
           <Tr>
@@ -268,6 +270,7 @@ const FancyNumber = () => {
             </>
           ))}
       </Table>
+
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Edit FancyNumber</Modal.Title>
@@ -653,6 +656,7 @@ const FancyNumber = () => {
           {loading && <Loading loading={loading} />}
         </Modal.Body>
       </Modal>
+
       <Modal show={showDetails} onHide={handleCloseDetails}>
         <Modal.Header closeButton>
           <Modal.Title>{numberDetails?.number}</Modal.Title>
