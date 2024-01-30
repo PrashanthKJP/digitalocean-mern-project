@@ -37,6 +37,9 @@ const DemoCard = ({ item, actions, width }) => {
     dynamicGroupSize4,
     dynamicGroupSize5
   );
+  useEffect(() => {
+    console.log(item);
+  }, []);
 
   return (
     <>
@@ -66,7 +69,7 @@ const DemoCard = ({ item, actions, width }) => {
             >
               <span>
                 SUM-TOTAL :- {item.oneTimeSum} + {item.secondTimeSum}
-                {item.thirdTimeSum ? ` + ${item.thirdTimeSum}` : ""}
+                {item.thridTimeSum ? ` + ${item.thridTimeSum}` : ""}
               </span>
             </div>
             <div className="view-details">

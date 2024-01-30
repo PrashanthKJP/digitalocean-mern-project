@@ -50,16 +50,14 @@ const AddNumber = () => {
       (previousScore, currentScore, index) => previousScore + currentScore,
       0
     );
+    // Second time sum + once again sum
+    const numberToStr1 = oneTimeSum.toString().split("");
+    var strToNum2 = numberToStr1.map((str) => parseInt(str));
+    const thridTimeSum = strToNum2.reduce(
+      (previousScore, currentScore, index) => previousScore + currentScore,
+      0
+    );
 
-    // Thrid time sum + once again sum
-    const numberToStr1 = secondTimeSum.toString().split("");
-    if (numberToStr1.length > 1) {
-      var strToNum2 = numberToStr1.map((str) => parseInt(str));
-      var thridTimeSum = strToNum2.reduce(
-        (previousScore, currentScore, index) => previousScore + currentScore,
-        0
-      );
-    }
     const data = {
       number,
       newPrice,
