@@ -50,7 +50,7 @@ const AddNumber = () => {
       (previousScore, currentScore, index) => previousScore + currentScore,
       0
     );
-    // Second time sum + once again sum
+    // Thrid time sum + once again sum
     const numberToStr1 = oneTimeSum.toString().split("");
     var strToNum2 = numberToStr1.map((str) => parseInt(str));
     const thridTimeSum = strToNum2.reduce(
