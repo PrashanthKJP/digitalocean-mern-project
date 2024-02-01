@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
+const path = require("path");
 
 //middleware has been updated
 app.use(express.json());
@@ -31,6 +32,6 @@ app.use("/api", require("./routes/numberRoutes"));
 app.use("/api", require("./routes/orderRoute"));
 app.use("/api", require("./routes/filterRoute"));
 
-app.listen(8888, () => {
-  console.log(`server is running on port ${8888}`);
+app.listen(1337, () => {
+  console.log(`server is running on port ${1337}`);
 });

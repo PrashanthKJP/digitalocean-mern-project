@@ -65,7 +65,7 @@ const DemoCard = ({ item, actions, width }) => {
           <Card.Text>
             <div
               className="card-details"
-              style={{ fontSize: `${size.width < 600 ? "3vw" : "auto"}` }}
+              style={{ fontSize: `${size.width < 600 ? "2vw" : "auto"}` }}
             >
               <span>
                 SUM-TOTAL :- {item.oneTimeSum} + {item.secondTimeSum}
