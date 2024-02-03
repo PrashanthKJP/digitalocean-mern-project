@@ -6,7 +6,7 @@ const path = require("path");
 
 //middleware has been updated
 app.use(express.json());
-
+app.use(express.static("static"));
 app.use(cors());
 
 const connectDB = async () => {
@@ -31,6 +31,10 @@ app.use("/api", require("./routes/userRoute"));
 app.use("/api", require("./routes/numberRoutes"));
 app.use("/api", require("./routes/orderRoute"));
 app.use("/api", require("./routes/filterRoute"));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "static/index.html"));
+});
 
 app.listen(1337, () => {
   console.log(`server is running on port ${1337}`);

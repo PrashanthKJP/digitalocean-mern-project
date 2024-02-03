@@ -89,7 +89,7 @@ const FancyNumber = () => {
     const total = `${numberUpdate ? numberUpdate : selectedItem.number}`.split(
       ""
     );
-    var strToNum = total.map((str) => parseInt(str));
+    const strToNum = total.map((str) => parseInt(str));
 
     const oneTimeSum = strToNum.reduce(
       (previousScore, currentScore, index) => previousScore + currentScore,
@@ -104,16 +104,13 @@ const FancyNumber = () => {
       0
     );
 
-    //thired time sum
-
+    // Thrid time sum + once again sum
     const numberToStr1 = secondTimeSum.toString().split("");
-    if (numberToStr1.length > 1) {
-      var strToNum2 = numberToStr1.map((str) => parseInt(str));
-      var thridTimeSum = strToNum2.reduce(
-        (previousScore, currentScore) => previousScore + currentScore,
-        0
-      );
-    }
+    var strToNum2 = numberToStr1.map((str) => parseInt(str));
+    const thridTimeSum = strToNum2.reduce(
+      (previousScore, currentScore, index) => previousScore + currentScore,
+      0
+    );
 
     const data = {
       number: numberUpdate || selectedItem.number,

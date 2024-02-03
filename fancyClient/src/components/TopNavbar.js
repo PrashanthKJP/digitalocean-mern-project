@@ -7,12 +7,14 @@ import { BiPhoneCall, BiSolidCartDownload } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../action/userAction";
 import { LinkContainer } from "react-router-bootstrap";
+import useWindowSize from "../coustomHook/useWindowSize";
 
 const TopNavbar = () => {
   const dispatch = useDispatch();
   const [currentUser, setCurrentUser] = useState();
 
   const cartState = useSelector((state) => state.cartReducer);
+  const size = useWindowSize();
   useEffect(() => {
     setCurrentUser(JSON.parse(localStorage.getItem("currentUser")));
   }, []);
@@ -29,6 +31,7 @@ const TopNavbar = () => {
         href="/"
         style={{
           margin: "auto",
+          fontSize: `${size.width < 600 ? "4.5vw" : "1.7vw"}`,
         }}
       >
         Welcome To Permanent VIP Fancynumbers
