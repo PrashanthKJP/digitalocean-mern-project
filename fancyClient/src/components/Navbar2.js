@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import {
-  Accordion,
   Button,
   Col,
   Container,
@@ -147,7 +146,7 @@ const Navbar2 = ({ getNavbarSearchData }) => {
       >
         <Form onSubmit={handleAdvanceSubmit}>
           <Modal.Header closeButton>
-            <Modal.Title>ADVANCE SEARCH</Modal.Title>
+            <Modal.Title>ADVANCED SEARCH</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Container fluid>
