@@ -128,7 +128,7 @@ const Navbar2 = ({ getNavbarSearchData }) => {
         style={{ width: `${size.width < 600 ? "100vw" : "30vw"}` }}
         size={`${size.width < 600 ? "sm" : "md"}`}
       >
-        Advance Search
+        Advanced Search
       </Button>
 
       {size.width < 600 && cartState.cartItems.length > 0 ? (
