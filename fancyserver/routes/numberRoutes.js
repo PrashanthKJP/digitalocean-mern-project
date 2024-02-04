@@ -11,7 +11,7 @@ const {
 //get all number
 router.get("/getAllNumber", getAllNumber);
 router.post("/addNumber", addNumber);
-router.get("/getSingleNumber/:id", getSingleNumber);
+router.post("/getSingleNumber", getSingleNumber);
 router.put("/updateSingleNumber/:id", updateSingleNumber);
 router.delete("/deletSingleNumber/:id", deletSingleNumber);
 

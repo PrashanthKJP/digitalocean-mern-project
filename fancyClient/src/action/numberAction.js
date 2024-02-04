@@ -50,3 +50,17 @@ export const editNumber = (data, id) => async (dispatch) => {
     swal("Errro While edited Number");
   }
 };
+export const getSingleNumber = (number) => async (dispatch) => {
+  dispatch({ type: "GET_SINGLE_NUMBER_REQUEST" });
+  try {
+    const res = await axios.post(`${BASE_URL}/api/getSingleNumber`, {
+      number: number,
+    });
+    dispatch({ type: "GET_SINGLE_NUMBER_SUCCESS", payload: res.data });
+    if (res.data) {
+      swal("This Number Alredy Added");
+    }
+  } catch (error) {
+    dispatch({ type: "GET_SINGLE_NUMBER_FAIL", payload: error });
+  }
+};

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Button, Form, Container, Row, Col } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { addNumber } from "../action/numberAction";
+import { addNumber, getSingleNumber } from "../action/numberAction";
 import Loading from "../components/Loading";
 import useWindowSize from "../coustomHook/useWindowSize";
+import axios from "axios";
+import { BASE_URL } from "../service/helper";
 
 const AddNumber = () => {
   const [number, setNumber] = useState(null);
@@ -78,7 +80,9 @@ const AddNumber = () => {
 
   const size = useWindowSize();
 
-  useEffect(() => {}, [selectedCategory, dispatch]);
+  useEffect(() => {
+    dispatch(getSingleNumber(number));
+  }, [selectedCategory, dispatch, number]);
 
   return (
     <Form onSubmit={handleSubmit}>
