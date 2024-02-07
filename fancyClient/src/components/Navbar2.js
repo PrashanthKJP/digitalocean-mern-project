@@ -125,7 +125,10 @@ const Navbar2 = ({ getNavbarSearchData }) => {
       <Button
         variant="success"
         onClick={handleAdvanceSearchShow}
-        style={{ width: `${size.width < 600 ? "100vw" : "30vw"}` }}
+        style={{
+          width: `${size.width < 600 ? "100vw" : "30vw"}`,
+          margin: "0px 10px",
+        }}
         size={`${size.width < 600 ? "sm" : "md"}`}
       >
         Advanced Search
