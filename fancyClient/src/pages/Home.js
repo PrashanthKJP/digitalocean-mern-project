@@ -87,265 +87,271 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
   ]);
 
   return (
-    <div style={{ position: "relative" }}>
+    <div style={{ position: "relative", padding: "10px" }}>
       <div>
         <Carousels />
-        <Container fluid>
-          <Row>
-            <Col md={3}>
-              {size.width > 600 ? (
-                <Card
-                  style={{
-                    marginTop: "1rem",
-                    background: "rgba(0, 0, 0, 0.1)",
-                    border: "none",
-                  }}
-                >
-                  <Card.Body>
-                    <Card.Title
-                      style={{
-                        justifyContent: "space-around",
-                        fontWeight: "500",
-                        fontSize: "15px",
-                        display: "flex",
-                        alignItems: "center",
-                      }}
-                    >
-                      SEARCH OPTIONS
-                      <Button
-                        onClick={handleClearFilter}
-                        style={{ marginLeft: "2vw" }}
-                        variant="warning"
-                      >
-                        Clear filter
-                      </Button>
-                    </Card.Title>
-                    <hr />
-                    <Card.Text>
-                      <div
+        <div style={{ marginTop: "1em" }}>
+          <Container fluid>
+            <Row>
+              <Col md={3}>
+                {size.width > 600 ? (
+                  <Card
+                    style={{
+                      marginTop: "1rem",
+                      background: "rgba(0, 0, 0, 0.1)",
+                      border: "none",
+                    }}
+                  >
+                    <Card.Body>
+                      <Card.Title
                         style={{
-                          fontWeight: "600",
-                          fontStyle: "italic",
+                          justifyContent: "space-around",
+                          fontWeight: "500",
                           fontSize: "15px",
-                          marginBottom: "5px",
+                          display: "flex",
+                          alignItems: "center",
                         }}
                       >
-                        <span>Numerology Search</span>
-                      </div>
-                      <InputGroup className="mb-3">
-                        <Form.Control
-                          aria-label="Example text with button addon"
-                          aria-describedby="basic-addon1"
-                          onChange={(e) => setNumerology(e.target.value)}
-                          value={numerology}
-                        />
-                      </InputGroup>
-                      <Form.Label
-                        style={{
-                          fontWeight: "600",
-                          fontStyle: "italic",
-                          fontSize: "15px",
-                          marginBottom: "5px",
-                        }}
-                      >
-                        Set Budget
-                      </Form.Label>
-                      <br />
-                      <div>
+                        SEARCH OPTIONS
                         <Button
-                          style={{
-                            width: "100%",
-                            marginBottom: "1vw",
-                          }}
-                          variant={`success `}
-                          disabled
+                          onClick={handleClearFilter}
+                          style={{ marginLeft: "2vw" }}
+                          variant="warning"
                         >
-                          set-range
+                          Clear filter
                         </Button>
+                      </Card.Title>
+                      <hr />
+                      <Card.Text>
                         <div
                           style={{
-                            display: "flex",
-                            justifyContent: "space-between",
-                            alignItems: "center",
-                            marginBottom: "10px",
+                            fontWeight: "600",
+                            fontStyle: "italic",
+                            fontSize: "15px",
+                            marginBottom: "5px",
                           }}
                         >
-                          <input
-                            style={{ width: "45%", textAlign: "center" }}
-                            value={startValue}
-                            onChange={(e) => setStartValue(e.target.value)}
-                            placeholder={startValue}
-                          />
-                          <input
-                            style={{ width: "45%", textAlign: "center" }}
-                            value={endValue}
-                            onChange={(e) => setEndValue(e.target.value)}
-                            placeholder={endValue}
-                          />
+                          <span>Numerology Search</span>
                         </div>
-                      </div>
-                      <Category getCategoryFunction={getCategoryFunction} />
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              ) : (
-                <Offcanvas show={show} onHide={handleClose}>
-                  <Offcanvas.Header closeButton>
-                    <Offcanvas.Title>Filter's</Offcanvas.Title>
-                  </Offcanvas.Header>
-
-                  <Offcanvas.Body>
-                    <Card
-                      style={{
-                        background: "rgba(0, 0, 0, 0.1)",
-                        border: "none",
-                      }}
-                    >
-                      <Card.Body>
-                        <Card.Title
+                        <InputGroup className="mb-3">
+                          <Form.Control
+                            aria-label="Example text with button addon"
+                            aria-describedby="basic-addon1"
+                            onChange={(e) => setNumerology(e.target.value)}
+                            value={numerology}
+                          />
+                        </InputGroup>
+                        <Form.Label
                           style={{
-                            justifyContent: "space-around",
-                            fontWeight: "500",
+                            fontWeight: "600",
+                            fontStyle: "italic",
                             fontSize: "15px",
+                            marginBottom: "5px",
                           }}
                         >
-                          SEARCH OPTIONS
+                          Set Budget
+                        </Form.Label>
+                        <br />
+                        <div>
                           <Button
-                            onClick={handleClearFilter}
-                            style={{ marginLeft: "15vw" }}
-                            variant="warning"
-                            size="sm"
-                          >
-                            clear all filter
-                          </Button>
-                        </Card.Title>
-                        <hr />
-                        <Card.Text
-                          style={{
-                            justifyContent: "space-around",
-                            fontWeight: "500",
-                            fontSize: "15px",
-                          }}
-                        >
-                          Numerology Search
-                          <InputGroup className="mb-3">
-                            <Form.Control
-                              aria-label="Example text with button addon"
-                              aria-describedby="basic-addon1"
-                              value={numerology}
-                              onChange={(e) => setNumerology(e.target.value)}
-                            />
-                          </InputGroup>
-                          <Form.Label
                             style={{
-                              fontWeight: "600",
-                              fontStyle: "italic",
-                              fontSize: "15px",
-                              marginBottom: "5px",
+                              width: "100%",
+                              marginBottom: "1vw",
+                            }}
+                            variant={`success `}
+                            disabled
+                          >
+                            set-range
+                          </Button>
+                          <div
+                            style={{
+                              display: "flex",
+                              justifyContent: "space-between",
+                              alignItems: "center",
+                              marginBottom: "10px",
                             }}
                           >
-                            Set Budget
-                          </Form.Label>
-                          <br />
-                          <div>
-                            <Button
-                              style={{
-                                width: "100%",
-                                marginBottom: "1vw",
-                              }}
-                              variant={`success `}
-                              disabled
-                            >
-                              set-range
-                            </Button>
-                            <div
-                              style={{
-                                display: "flex",
-                                justifyContent: "space-between",
-                                alignItems: "center",
-                                marginBottom: "10px",
-                              }}
-                            >
-                              <input
-                                style={{ width: "45%", textAlign: "center" }}
-                                value={startValue}
-                                onChange={(e) => setStartValue(e.target.value)}
-                                placeholder={startValue}
-                              />
-                              <input
-                                style={{ width: "45%", textAlign: "center" }}
-                                value={endValue}
-                                onChange={(e) => setEndValue(e.target.value)}
-                                placeholder={endValue}
-                              />
-                            </div>
+                            <input
+                              style={{ width: "45%", textAlign: "center" }}
+                              value={startValue}
+                              onChange={(e) => setStartValue(e.target.value)}
+                              placeholder={startValue}
+                            />
+                            <input
+                              style={{ width: "45%", textAlign: "center" }}
+                              value={endValue}
+                              onChange={(e) => setEndValue(e.target.value)}
+                              placeholder={endValue}
+                            />
                           </div>
-                          <Category getCategoryFunction={getCategoryFunction} />
-                        </Card.Text>
-                      </Card.Body>
-                    </Card>
-                  </Offcanvas.Body>
-                </Offcanvas>
-              )}
+                        </div>
+                        <Category getCategoryFunction={getCategoryFunction} />
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                ) : (
+                  <Offcanvas show={show} onHide={handleClose}>
+                    <Offcanvas.Header closeButton>
+                      <Offcanvas.Title>Filter's</Offcanvas.Title>
+                    </Offcanvas.Header>
 
-              {size.width < 600 && (
-                <Button
-                  variant="primary"
-                  onClick={handleShow}
-                  style={{ width: "90vw", marginTop: "1vw" }}
-                >
-                  Add More Filter
-                </Button>
-              )}
-            </Col>
-            <Col md={9}>
-              {size.width < 600 ? (
-                <div
-                  className="scrollBar"
-                  style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    width: "100vw",
-                  }}
-                >
-                  {error && <Error error="Error While Fetching Number" />}
-                  {(loading && <Loading loading={loading} />) ||
-                    (filterNumbers &&
-                      filterNumbers.map((item, index) => (
-                        <div key={index}>
-                          <DemoCard
-                            item={item}
-                            actions={() => addToCarthandler(item)}
-                          />
-                        </div>
-                      )))}
-                </div>
-              ) : (
-                <div
-                  className="scrollBar"
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-around",
-                    alignItems: "flex-start",
-                    flexWrap: "wrap",
-                  }}
-                >
-                  {error && <Error error="Error While Fetching Number" />}
-                  {(loading && <Loading loading={loading} />) ||
-                    (filterNumbers &&
-                      filterNumbers.map((item, index) => (
-                        <div key={index}>
-                          <DemoCard
-                            item={item}
-                            actions={() => addToCarthandler(item)}
-                          />
-                        </div>
-                      )))}
-                </div>
-              )}
-            </Col>
-          </Row>
-        </Container>
+                    <Offcanvas.Body>
+                      <Card
+                        style={{
+                          background: "rgba(0, 0, 0, 0.1)",
+                          border: "none",
+                        }}
+                      >
+                        <Card.Body>
+                          <Card.Title
+                            style={{
+                              justifyContent: "space-around",
+                              fontWeight: "500",
+                              fontSize: "15px",
+                            }}
+                          >
+                            SEARCH OPTIONS
+                            <Button
+                              onClick={handleClearFilter}
+                              style={{ marginLeft: "15vw" }}
+                              variant="warning"
+                              size="sm"
+                            >
+                              clear all filter
+                            </Button>
+                          </Card.Title>
+                          <hr />
+                          <Card.Text
+                            style={{
+                              justifyContent: "space-around",
+                              fontWeight: "500",
+                              fontSize: "15px",
+                            }}
+                          >
+                            Numerology Search
+                            <InputGroup className="mb-3">
+                              <Form.Control
+                                aria-label="Example text with button addon"
+                                aria-describedby="basic-addon1"
+                                value={numerology}
+                                onChange={(e) => setNumerology(e.target.value)}
+                              />
+                            </InputGroup>
+                            <Form.Label
+                              style={{
+                                fontWeight: "600",
+                                fontStyle: "italic",
+                                fontSize: "15px",
+                                marginBottom: "5px",
+                              }}
+                            >
+                              Set Budget
+                            </Form.Label>
+                            <br />
+                            <div>
+                              <Button
+                                style={{
+                                  width: "100%",
+                                  marginBottom: "1vw",
+                                }}
+                                variant={`success `}
+                                disabled
+                              >
+                                set-range
+                              </Button>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  justifyContent: "space-between",
+                                  alignItems: "center",
+                                  marginBottom: "10px",
+                                }}
+                              >
+                                <input
+                                  style={{ width: "45%", textAlign: "center" }}
+                                  value={startValue}
+                                  onChange={(e) =>
+                                    setStartValue(e.target.value)
+                                  }
+                                  placeholder={startValue}
+                                />
+                                <input
+                                  style={{ width: "45%", textAlign: "center" }}
+                                  value={endValue}
+                                  onChange={(e) => setEndValue(e.target.value)}
+                                  placeholder={endValue}
+                                />
+                              </div>
+                            </div>
+                            <Category
+                              getCategoryFunction={getCategoryFunction}
+                            />
+                          </Card.Text>
+                        </Card.Body>
+                      </Card>
+                    </Offcanvas.Body>
+                  </Offcanvas>
+                )}
+
+                {size.width < 600 && (
+                  <Button
+                    variant="primary"
+                    onClick={handleShow}
+                    style={{ width: "90vw", marginTop: "1vw" }}
+                  >
+                    Add More Filter
+                  </Button>
+                )}
+              </Col>
+              <Col md={9}>
+                {size.width < 600 ? (
+                  <div
+                    className="scrollBar"
+                    style={{
+                      display: "flex",
+                      flexWrap: "wrap",
+                      width: "100vw",
+                    }}
+                  >
+                    {error && <Error error="Error While Fetching Number" />}
+                    {(loading && <Loading loading={loading} />) ||
+                      (filterNumbers &&
+                        filterNumbers.map((item, index) => (
+                          <div key={index}>
+                            <DemoCard
+                              item={item}
+                              actions={() => addToCarthandler(item)}
+                            />
+                          </div>
+                        )))}
+                  </div>
+                ) : (
+                  <div
+                    className="scrollBar"
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-around",
+                      alignItems: "flex-start",
+                      flexWrap: "wrap",
+                    }}
+                  >
+                    {error && <Error error="Error While Fetching Number" />}
+                    {(loading && <Loading loading={loading} />) ||
+                      (filterNumbers &&
+                        filterNumbers.map((item, index) => (
+                          <div key={index}>
+                            <DemoCard
+                              item={item}
+                              actions={() => addToCarthandler(item)}
+                            />
+                          </div>
+                        )))}
+                  </div>
+                )}
+              </Col>
+            </Row>
+          </Container>
+        </div>
       </div>
 
       <FloatingWhatsApp

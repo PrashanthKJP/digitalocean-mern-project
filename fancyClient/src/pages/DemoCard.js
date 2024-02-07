@@ -110,6 +110,7 @@ const DemoCard = ({ item, actions, width }) => {
                 Buy Now
               </Button>
             </Link>
+            &nbsp;&nbsp;
             <Button
               className="add-to-cart-button"
               onClick={() => actions(item)}

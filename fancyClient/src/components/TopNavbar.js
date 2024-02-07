@@ -24,18 +24,20 @@ const TopNavbar = () => {
       // fixed="top"
       style={{
         boxShadow: "0px 0px 100px rgba(0, 0, 0, 0.5)",
-        backgroundColor: "#689f38",
+        backgroundColor: "#24925f",
       }}
     >
-      <Navbar.Brand
-        href="/"
-        style={{
-          margin: "auto",
-          fontSize: `${size.width < 600 ? "4.5vw" : "1.7vw"}`,
-        }}
-      >
-        Welcome To Permanent VIP Fancynumbers
-      </Navbar.Brand>
+      <div style={{ marginLeft: "20px" }}>
+        <Navbar.Brand
+          href="/"
+          style={{
+            margin: "auto",
+            fontSize: `${size.width < 600 ? "4.5vw" : "1.7vw"}`,
+          }}
+        >
+          Welcome To Permanent VIP Fancynumbers
+        </Navbar.Brand>
+      </div>
       <Container fluid>
         <span
           style={{
