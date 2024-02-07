@@ -4,8 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { addNumber, getSingleNumber } from "../action/numberAction";
 import Loading from "../components/Loading";
 import useWindowSize from "../coustomHook/useWindowSize";
-import axios from "axios";
-import { BASE_URL } from "../service/helper";
 
 const AddNumber = () => {
   const [number, setNumber] = useState(null);
@@ -53,12 +51,15 @@ const AddNumber = () => {
       0
     );
     // Thrid time sum + once again sum
+    var thridTimeSum;
     const numberToStr1 = secondTimeSum.toString().split("");
-    var strToNum2 = numberToStr1.map((str) => parseInt(str));
-    const thridTimeSum = strToNum2.reduce(
-      (previousScore, currentScore, index) => previousScore + currentScore,
-      0
-    );
+    if (numberToStr1.length >= 2) {
+      var strToNum2 = numberToStr1.map((str) => parseInt(str));
+      thridTimeSum = strToNum2.reduce(
+        (previousScore, currentScore, index) => previousScore + currentScore,
+        0
+      );
+    }
 
     const data = {
       number,
@@ -76,6 +77,7 @@ const AddNumber = () => {
       splitNumber5,
     };
     dispatch(addNumber(data));
+    console.log("data in add", data);
   };
 
   const size = useWindowSize();
