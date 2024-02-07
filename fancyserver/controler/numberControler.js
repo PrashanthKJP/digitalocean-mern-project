@@ -64,9 +64,9 @@ const addNumber = async (req, res) => {
 };
 
 const getSingleNumber = async (req, res) => {
-  const numberId = req.params.id;
   try {
-    const currentNumber = await numberModal.findOne({ _id: numberId });
+    const { number } = req.body;
+    const currentNumber = await numberModal.findOne({ number });
     res.send(currentNumber);
   } catch (error) {
     res.json({ message: "something went wrong" });

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Form, Container, Row, Col } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { addNumber } from "../action/numberAction";
+import { addNumber, getSingleNumber } from "../action/numberAction";
 import Loading from "../components/Loading";
 import useWindowSize from "../coustomHook/useWindowSize";
 
@@ -51,12 +51,15 @@ const AddNumber = () => {
       0
     );
     // Thrid time sum + once again sum
+    var thridTimeSum;
     const numberToStr1 = secondTimeSum.toString().split("");
-    var strToNum2 = numberToStr1.map((str) => parseInt(str));
-    const thridTimeSum = strToNum2.reduce(
-      (previousScore, currentScore, index) => previousScore + currentScore,
-      0
-    );
+    if (numberToStr1.length >= 2) {
+      var strToNum2 = numberToStr1.map((str) => parseInt(str));
+      thridTimeSum = strToNum2.reduce(
+        (previousScore, currentScore, index) => previousScore + currentScore,
+        0
+      );
+    }
 
     const data = {
       number,
@@ -74,11 +77,14 @@ const AddNumber = () => {
       splitNumber5,
     };
     dispatch(addNumber(data));
+    console.log("data in add", data);
   };
 
   const size = useWindowSize();
 
-  useEffect(() => {}, [selectedCategory, dispatch]);
+  useEffect(() => {
+    dispatch(getSingleNumber(number));
+  }, [selectedCategory, dispatch, number]);
 
   return (
     <Form onSubmit={handleSubmit}>

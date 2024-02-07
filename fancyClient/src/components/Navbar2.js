@@ -159,7 +159,7 @@ const Navbar2 = ({ getNavbarSearchData }) => {
                     <Form.Label>Start With</Form.Label>
                     <Form.Control
                       type="text"
-                      placeholder="e.g *91855"
+                      placeholder="e.g *99,88,77 multiple value"
                       onChange={(e) => setStartWith(e.target.value)}
                     />
                   </Form.Group>
@@ -167,8 +167,8 @@ const Navbar2 = ({ getNavbarSearchData }) => {
                   <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Anyware</Form.Label>
                     <Form.Control
-                      type="text"
-                      placeholder="e.g 000"
+                      type="number"
+                      placeholder="e.g 000 single value"
                       onChange={(e) => setAnyWare(e.target.value)}
                     />
                   </Form.Group>
@@ -177,7 +177,7 @@ const Navbar2 = ({ getNavbarSearchData }) => {
                     <Form.Label>Not Contain</Form.Label>
                     <Form.Control
                       type="text"
-                      placeholder=""
+                      placeholder="e.g 1,2,3,4 multiple value"
                       onChange={(e) => setNotContain(e.target.value)}
                     />
                   </Form.Group>
@@ -187,7 +187,7 @@ const Navbar2 = ({ getNavbarSearchData }) => {
                     <Form.Label>End with</Form.Label>
                     <Form.Control
                       type="text"
-                      placeholder="e.g 367"
+                      placeholder="e.g 11,22,3 multiple value"
                       onChange={(e) => setEndWith(e.target.value)}
                     />
                   </Form.Group>
@@ -195,8 +195,8 @@ const Navbar2 = ({ getNavbarSearchData }) => {
                   <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Must Contain</Form.Label>
                     <Form.Control
-                      type="text"
-                      placeholder="e.g 14.18"
+                      type="number"
+                      placeholder="e.g 14 single value"
                       onChange={(e) => setMustContain(e.target.value)}
                     />
                   </Form.Group>
@@ -204,7 +204,7 @@ const Navbar2 = ({ getNavbarSearchData }) => {
               </Row>
               <hr />
               <span style={{ color: "red" }}>
-                For multiple values use commas
+                For multiple values use commas for total and sum
               </span>
               <Row>
                 <Col lg={6} xs={6}>
