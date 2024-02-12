@@ -135,7 +135,8 @@ At Lifetime Number, our operations are driven by a team of young, talented, and 
         style={{
           backgroundColor: "#333",
           color: "#fff",
-          padding: "20px",
+          padding: "2vw 0vw",
+          marginTop: "2vw",
           textAlign: "center",
           width: "100%",
           position: "fixed",
