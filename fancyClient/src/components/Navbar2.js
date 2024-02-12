@@ -90,7 +90,7 @@ const Navbar2 = ({ getNavbarSearchData }) => {
     <Navbar expand="lg">
       <Container fluid>
         <Navbar.Brand href="#home">
-          <img src={logo} alt="VIP FANCY PHONE NUMBER" height="50" />
+          <img src={logo} alt="VIP FANCY PHONE NUMBER" height="42" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">

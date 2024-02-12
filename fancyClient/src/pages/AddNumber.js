@@ -94,7 +94,7 @@ const AddNumber = () => {
             <Form.Group>
               <Form.Label>Phone Number</Form.Label>
               <Form.Control
-                type="number"
+                type="text"
                 placeholder="Enter number"
                 onChange={(e) => setNumber(e.target.value)}
               />
@@ -104,7 +104,7 @@ const AddNumber = () => {
             <Form.Group>
               <Form.Label>Old Price</Form.Label>
               <Form.Control
-                type="number"
+                type="text"
                 placeholder="Amount"
                 onChange={(e) => setOldPrice(e.target.value)}
               />
@@ -114,7 +114,7 @@ const AddNumber = () => {
             <Form.Group>
               <Form.Label>New Price</Form.Label>
               <Form.Control
-                type="number"
+                type="text"
                 placeholder="Amount"
                 onChange={(e) => setNewPrice(e.target.value)}
               />
@@ -126,7 +126,7 @@ const AddNumber = () => {
           <Col md={6} xs={6}>
             <Form.Group>
               <Form.Control
-                type="number"
+                type="text"
                 placeholder="Number 1"
                 onChange={(e) => setSplitNumber1(e.target.value)}
               />
@@ -135,7 +135,7 @@ const AddNumber = () => {
           <Col md={6} xs={6}>
             <Form.Group>
               <Form.Control
-                type="number"
+                type="text"
                 placeholder="Number 2"
                 onChange={(e) => setSplitNumber2(e.target.value)}
               />
@@ -144,7 +144,7 @@ const AddNumber = () => {
           <Col md={6} xs={6}>
             <Form.Group>
               <Form.Control
-                type="number"
+                type="text"
                 placeholder="Number 3"
                 onChange={(e) => setSplitNumber3(e.target.value)}
               />
@@ -153,7 +153,7 @@ const AddNumber = () => {
           <Col md={6} xs={6}>
             <Form.Group>
               <Form.Control
-                type="number"
+                type="text"
                 placeholder="Number 4"
                 onChange={(e) => setSplitNumber4(e.target.value)}
               />
@@ -162,7 +162,7 @@ const AddNumber = () => {
           <Col md={6} xs={6}>
             <Form.Group>
               <Form.Control
-                type="number"
+                type="text"
                 placeholder="Number 5"
                 onChange={(e) => setSplitNumber5(e.target.value)}
               />

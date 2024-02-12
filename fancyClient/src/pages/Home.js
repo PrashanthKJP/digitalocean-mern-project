@@ -87,7 +87,7 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
   ]);
 
   return (
-    <div style={{ position: "relative", padding: "10px" }}>
+    <div>
       <div>
         <Carousels />
         <div style={{ marginTop: "1em" }}>
