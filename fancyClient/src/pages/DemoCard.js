@@ -50,6 +50,7 @@ const DemoCard = ({ item, actions, width }) => {
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
           border: "none",
+          boxSizing: "border-box",
         }}
       >
         <Card.Body>
@@ -62,7 +63,7 @@ const DemoCard = ({ item, actions, width }) => {
           <Card.Text>
             <div
               className="card-details"
-              style={{ fontSize: `${size.width < 600 ? "2vw" : "auto"}` }}
+              style={{ fontSize: `${size.width < 600 ? "2.8vw" : "auto"}` }}
             >
               <span>
                 SUM-TOTAL :- {item.oneTimeSum} + {item.secondTimeSum}
@@ -101,7 +102,7 @@ const DemoCard = ({ item, actions, width }) => {
                 className="buy-now-button"
                 onClick={() => actions(item)}
                 style={{
-                  fontSize: `${size.width < 600 ? "1.8vw" : "auto"}`,
+                  fontSize: `${size.width < 600 ? "2.4vw" : "auto"}`,
                 }}
               >
                 Buy Now
@@ -112,7 +113,7 @@ const DemoCard = ({ item, actions, width }) => {
               className="add-to-cart-button"
               onClick={() => actions(item)}
               style={{
-                fontSize: `${size.width < 600 ? "1.8vw" : "auto"}`,
+                fontSize: `${size.width < 600 ? "2.4vw" : "auto"}`,
                 // maxWidth: "30vw",
               }}
             >

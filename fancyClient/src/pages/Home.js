@@ -211,10 +211,7 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
                   </Card>
                 ) : (
                   <Offcanvas show={show} onHide={handleClose}>
-                    <Offcanvas.Header closeButton>
-                      <Offcanvas.Title>Filter's</Offcanvas.Title>
-                    </Offcanvas.Header>
-
+                    <Offcanvas.Header closeButton></Offcanvas.Header>
                     <Offcanvas.Body>
                       <Card
                         style={{
@@ -288,7 +285,10 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
                                 }}
                               >
                                 <input
-                                  style={{ width: "45%", textAlign: "center" }}
+                                  style={{
+                                    width: "45%",
+                                    textAlign: "center",
+                                  }}
                                   value={startValue}
                                   onChange={(e) =>
                                     setStartValue(e.target.value)
@@ -296,7 +296,10 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
                                   placeholder={startValue}
                                 />
                                 <input
-                                  style={{ width: "45%", textAlign: "center" }}
+                                  style={{
+                                    width: "45%",
+                                    textAlign: "center",
+                                  }}
                                   value={endValue}
                                   onChange={(e) => setEndValue(e.target.value)}
                                   placeholder={endValue}

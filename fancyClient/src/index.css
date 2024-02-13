@@ -39,8 +39,8 @@ body {
   font-weight: bold;
   font-size: 1.5rem;
   text-align: center;
+  color: black !important;
 }
-
 .card-details {
   font-weight: 700;
   font-style: italic;
@@ -51,6 +51,7 @@ body {
 
 .view-details {
   text-align: center;
+  font-size: 14px;
 }
 
 .view-details-link {
@@ -80,18 +81,33 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: 20px;
+  box-sizing: border-box;
+  /* margin-top: 20px; */
 }
 
 .buy-now-button,
 .add-to-cart-button {
   font-size: 1rem;
+  padding: 5px !important;
+  border-radius: 2px !important;
+  box-sizing: border-box;
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 
   &:hover {
     background-color: #28a745;
     color: #fff;
     transform: scale(1.05);
+    background-image: linear-gradient(
+      to right,
+      #462523 0,
+      #cb9b51 22%,
+      #f6e27a 45%,
+      #f6f2c0 50%,
+      #f6e27a 55%,
+      #cb9b51 78%,
+      #462523 100%
+    );
+    color: transparent;
   }
 }
 
