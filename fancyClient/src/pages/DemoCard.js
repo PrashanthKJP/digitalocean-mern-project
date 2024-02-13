@@ -37,9 +37,6 @@ const DemoCard = ({ item, actions, width }) => {
     dynamicGroupSize4,
     dynamicGroupSize5
   );
-  useEffect(() => {
-    console.log(item);
-  }, []);
 
   return (
     <>

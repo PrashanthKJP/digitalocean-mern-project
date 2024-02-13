@@ -6,6 +6,7 @@ import { FaTrash } from "react-icons/fa";
 import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
 import Loading from "../components/Loading";
 import Error from "../components/Error";
+import { Helmet } from "react-helmet";
 
 const Orders = () => {
   const { orders, loading, error } = useSelector(
@@ -29,6 +30,13 @@ const Orders = () => {
 
   return (
     <Container fluid>
+      <Helmet>
+        <title> Permanent VIP Fancy Numbers Check Orders</title>
+        <meta
+          name="description"
+          content="Welcome to the Permanent VIP Fancy Numbers Order Page. Here, you can view and manage your orders for exclusive VIP numbers. Whether you're checking the status of a recent order or exploring available options, this is your hub for all things related to your VIP number acquisitions. Stay connected and in control with our streamlined order management system. Begin your journey to securing the perfect VIP number today."
+        />
+      </Helmet>
       <Table striped="columns">
         <Thead>
           <Tr>

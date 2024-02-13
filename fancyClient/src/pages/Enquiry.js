@@ -66,7 +66,7 @@ const Enquiry = () => {
     <div style={{ height: "100vh" }}>
       <Container fluid>
         <Helmet>
-          <title>Life Time Fancy Number Enquiry</title>
+          <title>Permanent VIP Fancy Numbers Enquiry</title>
           <meta
             name="description"
             content="Unlock a lifetime of exclusivity with our premium Fancy Phone Numbers! Enquire now to reserve a unique, personalized mobile number that will be yours for a lifetime. Elevate your communication experience with a phone number that reflects your individuality. Stand out from the crowd and make a lasting impression. Enquire today and secure a fancy number that transcends time and trends!"

@@ -34,7 +34,7 @@ const Login = () => {
     <div style={{ height: "100vh" }}>
       <Container fluid>
         <Helmet>
-          <title>Login to Your life time fancy number Account</title>
+          <title>Login to Your Permanent VIP Fancy Numbers Account</title>
           <meta
             name="description"
             content="Log in to your VIP FancyNumber account to manage your exclusive phone numbers and elevate your communication experience."
