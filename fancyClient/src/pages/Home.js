@@ -20,6 +20,7 @@ import Error from "../components/Error";
 import DemoCard from "./DemoCard";
 import FloatingWhatsApp from "../components/FloatingWhatsApp";
 import { useDebounce } from "../coustomHook/useDebounce";
+import { Helmet } from "react-helmet";
 
 const Home = ({ selectedSearchData, selectedSearchOptions }) => {
   const [numerology, setNumerology] = useState("");
@@ -75,6 +76,15 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
     .map((key) => `${key}=${encodeURIComponent(queryParams[key])}`)
     .join("&");
 
+  const metaData = [
+    "buy fancy mobile numbers online",
+    "postpaid plan",
+    "	Postpaid SIM",
+    "	SIM Card Home Delivery",
+    "Permanent VIP Fancy Numbers",
+    "fancy phone number",
+  ];
+
   useEffect(() => {
     dispatch(filterNumber(queryString));
   }, [
@@ -89,6 +99,16 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
   return (
     <div>
       <div>
+        <Helmet>
+          {metaData.map((item) => (
+            <title> {item} </title>
+          ))}
+
+          <meta
+            name="description"
+            content="Welcome to Permanent VIP Fancy Numbers - your ultimate destination for exclusive, premium phone numbers! Discover a world of personalized communication with our curated selection of VIP numbers. Stand out from the crowd and make a statement with a number that truly reflects your style and status. Browse our collection now and find the perfect number that's as unique as you are."
+          />
+        </Helmet>
         <Carousels />
         <div style={{ marginTop: "1em" }}>
           <Container fluid>

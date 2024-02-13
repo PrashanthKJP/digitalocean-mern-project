@@ -74,7 +74,7 @@ At Lifetime Number, our operations are driven by a team of young, talented, and 
     <>
       <section style={{ marginBottom: "5vw" }}>
         <Helmet>
-          <title>Life Time Fancy Number person's</title>
+          <title>Permanent VIP Fancy Numbers Services</title>
           <meta
             name="description"
             content="Empower your business leaders with Life Time Fancy Numbers for People. Elevate the professional image of your company holders with personalized mobile identities that reflect authority and distinction. Each fancy number tells a story of corporate excellence, enhancing communication and leaving a lasting impression. Explore our premium collection and provide your company leaders with a unique digital signature. Transform your corporate identity—enquire now and secure a lifetime of distinction for your key personnel."

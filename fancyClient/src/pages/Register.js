@@ -36,10 +36,10 @@ const Register = () => {
     <div style={{ height: "100vh" }}>
       <Container fluid>
         <Helmet>
-          <title>Register to Your life time fancy number Account</title>
+          <title>Permanent VIP Fancy Numbers Register</title>
           <meta
             name="description"
-            content="Log in to your VIP FancyNumber account to manage your exclusive phone numbers and elevate your communication experience."
+            content="Welcome to Permanent VIP Fancy Numbers Registration. Unlock a world of exclusive privileges by creating your account today. Join our community of VIP number enthusiasts and gain access to premium numbers tailored to your preferences. Signing up is quick and easy - just fill out the form below to get started on your journey to owning the perfect VIP number. Register now and elevate your communication experience."
           />
         </Helmet>
         <Row>

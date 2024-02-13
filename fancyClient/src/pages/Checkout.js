@@ -75,7 +75,7 @@ const Checkout = () => {
     <div style={{ height: "100vh" }}>
       <Container fluid>
         <Helmet>
-          <title>Fancy Number Checkout</title>
+          <title>Permanent VIP Fancy Numbers Checkout</title>
           <meta
             name="description"
             content="Securely complete your journey to an exclusive mobile identity with our Fancy Number Checkout. Finalize your selection of premium numbers and proceed to a seamless and secure checkout process. Elevate your communication experience with a personalized mobile number that defines your style and individuality. Take the next step in making a lasting impression—checkout now and own a fancy number that stands out from the crowd!"

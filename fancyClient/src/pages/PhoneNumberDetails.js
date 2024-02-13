@@ -161,6 +161,7 @@ const PhoneNumberDetails = () => {
     const res = await axios.get(`${BASE_URL}/api/getSingleNumber/${id}`);
     setData(res.data);
   };
+  getData(id);
 
   const addToCarthandler = (item) => {
     dispatch(addToCart(item.newPrice, item.number, item.oldPrice, item._id));
@@ -169,15 +170,13 @@ const PhoneNumberDetails = () => {
 
   const size = useWindowSize();
 
-  useEffect(() => {
-    getData(id);
-  }, [id]);
+  useEffect(() => {}, [id]);
 
   return (
     <div style={{ height: "100vh" }}>
       <Container fluid>
         <Helmet>
-          <title>Life Time Fancy Number PhoneNumberDetails</title>
+          <title>Permanent VIP Fancy Numbers Details</title>
           <meta
             name="description"
             content="Discover the unparalleled allure of our Life Time Fancy Numbers with PhoneNumberDetails. Each number tells a unique story, a lifetime of individuality captured in digits. Explore the exclusive details of our premium phone numbers and envision the extraordinary connection they bring. Elevate your personal and professional image with a fancy number that transcends time. Enquire now to unravel the intricate details of your personalized mobile identity. Your lifetime of distinction starts here."
@@ -188,13 +187,13 @@ const PhoneNumberDetails = () => {
             <div>
               Status : <h3 style={{ color: "green" }}>Available</h3>
             </div>
-            {data && (
+            {/* {data && (
               <DemoCard
                 item={data}
                 actions={() => addToCarthandler(data)}
                 width={"100vw"}
               />
-            )}
+            )} */}
           </Col>
           <Col
             md={9}

@@ -22,7 +22,7 @@ const Cart = () => {
     <div style={{ height: "100vh" }}>
       <Container fluid>
         <Helmet>
-          <title>Fancy Number Cart Section</title>
+          <title>Permanent VIP Fancy Numbers Ceck Cart</title>
           <meta
             name="description"
             content="Explore and curate your exclusive collection of Fancy Numbers in the Cart Section. Elevate your digital identity with a personalized mobile number that speaks volumes about your style. Add the perfect touch to your communication experience by selecting premium numbers that resonate with your individuality. Your journey to a distinguished mobile identity begins in the Fancy Number Cart Section. Start building your unique collection today!"

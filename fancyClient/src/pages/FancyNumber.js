@@ -23,6 +23,7 @@ import useWindowSize from "../coustomHook/useWindowSize";
 import { BiSearch } from "react-icons/bi";
 import { filterNumber, filterNumberFancy } from "../action/filterNumberAction";
 import { useDebounce } from "../coustomHook/useDebounce";
+import { Helmet } from "react-helmet";
 // import "table/dist/SuperResponsiveTableStyle.css ";
 
 const FancyNumber = () => {
@@ -157,6 +158,13 @@ const FancyNumber = () => {
   return (
     <>
       <Container fluid>
+        <Helmet>
+          <title>Permanent VIP Fancy Numbers Choose Number</title>
+          <meta
+            name="description"
+            content="Unlock a lifetime of exclusivity with our premium Fancy Phone Numbers! Enquire now to reserve a unique, personalized mobile number that will be yours for a lifetime. Elevate your communication experience with a phone number that reflects your individuality. Stand out from the crowd and make a lasting impression. Enquire today and secure a fancy number that transcends time and trends!"
+          />
+        </Helmet>
         <Form className="d-flex mt-2" onSubmit={handleSubmitForFilterNumber}>
           <InputGroup className="mb-3">
             <Form.Control
