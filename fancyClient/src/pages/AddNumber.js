@@ -94,7 +94,7 @@ const AddNumber = () => {
             <Form.Group>
               <Form.Label>Phone Number</Form.Label>
               <Form.Control
-                type="text"
+                type="number"
                 placeholder="Enter number"
                 onChange={(e) => setNumber(e.target.value)}
               />

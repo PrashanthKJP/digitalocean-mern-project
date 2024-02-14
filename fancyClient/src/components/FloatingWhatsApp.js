@@ -12,6 +12,7 @@ import css from "../styles.module.css";
 import darkBG from "./assets/bg-chat-tile-light.png";
 import lightBG from "./assets/bg-chat-tile-dark.png";
 import dummyAvatar from "./assets/uifaces-avatar.jpg";
+import vinayaka from "../../src/images/vinayaka.jpeg";
 import SoundBeep from "./assets/whatsapp-notification.mp3";
 
 function FloatingWhatsApp({
@@ -23,7 +24,7 @@ function FloatingWhatsApp({
 
   phoneNumber = "7019504346",
   accountName = "Account Name",
-  avatar = dummyAvatar,
+  avatar = vinayaka,
   statusMessage = "Online",
   chatMessage = "Hello there! 🤝 \nHow can we help?",
   placeholder = "Type a message....",
