@@ -22,10 +22,7 @@ import DemoCard from "./DemoCard";
 import FloatingWhatsApp from "../components/FloatingWhatsApp";
 import { useDebounce } from "../coustomHook/useDebounce";
 import { Helmet } from "react-helmet";
-import { getAllUsers } from "../action/userAction";
-import { getAllNumber } from "../action/numberAction";
-import { getAllOrders } from "../action/orderAction";
-const ExcelJS = require("exceljs");
+import ExcelJS from "exceljs";
 
 const Home = ({ selectedSearchData, selectedSearchOptions }) => {
   const [numerology, setNumerology] = useState("");
