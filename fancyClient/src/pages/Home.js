@@ -7,6 +7,7 @@ import {
   Container,
   Form,
   InputGroup,
+  Navbar,
   Offcanvas,
   Row,
 } from "react-bootstrap";
@@ -21,6 +22,7 @@ import DemoCard from "./DemoCard";
 import FloatingWhatsApp from "../components/FloatingWhatsApp";
 import { useDebounce } from "../coustomHook/useDebounce";
 import { Helmet } from "react-helmet";
+const ExcelJS = require("exceljs");
 
 const Home = ({ selectedSearchData, selectedSearchOptions }) => {
   const [numerology, setNumerology] = useState("");
@@ -84,6 +86,100 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
     "Permanent VIP Fancy Numbers",
     "fancy phone number",
   ];
+
+  const exportExcelFile = () => {
+    const workbook = new ExcelJS.Workbook();
+    const sheet = workbook.addWorksheet("My Sheet");
+    sheet.properties.defaultRowHeight = 50;
+
+    sheet.getRow(1).border = {
+      top: { style: "thick", color: { argb: "FF808080" } }, // Black color
+      left: { style: "thick", color: { argb: "FF808080" } }, // Black color
+      bottom: { style: "thick", color: { argb: "FF808080" } }, // Black color
+      right: { style: "thick", color: { argb: "FF808080" } }, // Black color
+    };
+
+    sheet.getRow(1).fill = {
+      type: "pattern",
+      pattern: "solid",
+      fgColor: { argb: "ffff6347" }, // Red color
+    };
+
+    sheet.getRow(1).font = {
+      name: "Comic Sans MS",
+      family: 4,
+      size: 16,
+      bold: true,
+    };
+
+    sheet.columns = [
+      {
+        header: "Id",
+        key: "id",
+        width: 40,
+      },
+      {
+        header: "number",
+        key: "number",
+        width: 15,
+      },
+      {
+        header: "newPrice",
+        key: "newPrice",
+        width: 15,
+      },
+      {
+        header: "oldPrice",
+        key: "oldPrice",
+        width: 15,
+      },
+      {
+        header: "oneTimeSum",
+        key: "oneTimeSum",
+        width: 20,
+      },
+      {
+        header: "secondTimeSum",
+        key: "secondTimeSum",
+        width: 20,
+      },
+      {
+        header: "thridTimeSum",
+        key: "thridTimeSum",
+        width: 20,
+      },
+    ];
+
+    filterNumbers?.map(async (product, index) => {
+      sheet.addRow({
+        id: product?._id,
+        number: product?.number,
+        newPrice: product?.newPrice,
+        oldPrice: product?.oldPrice,
+        oneTimeSum: product?.oneTimeSum,
+        secondTimeSum: product?.secondTimeSum,
+        thridTimeSum: product?.thridTimeSum,
+      });
+    });
+
+    workbook.xlsx.writeBuffer().then(function (data) {
+      const blob = new Blob([data], {
+        type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      });
+      const url = window.URL.createObjectURL(blob);
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = "download.xlsx";
+      anchor.click();
+      window.URL.revokeObjectURL(url);
+    });
+  };
+  const highToLow = () => {
+    alert("High");
+  };
+  const lowToHigh = () => {
+    alert("low");
+  };
 
   useEffect(() => {
     dispatch(filterNumber(queryString));
@@ -327,6 +423,29 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
                 )}
               </Col>
               <Col md={9}>
+                <Navbar expand="lg">
+                  <Container>
+                    <Navbar.Brand href="#home">
+                      <Button onClick={exportExcelFile}>Download Excel</Button>
+                    </Navbar.Brand>
+
+                    <Navbar.Toggle />
+                    <Navbar.Collapse className="justify-content-end">
+                      <Navbar.Text style={{ marginRight: "2vw" }}>
+                        <Button variant="danger" onClick={highToLow}>
+                          High to Low Number
+                        </Button>
+                      </Navbar.Text>
+                      <br />
+                      <Navbar.Text style={{ marginLeft: "2vw" }}>
+                        <Button variant="success" onClick={lowToHigh}>
+                          Low to High Number
+                        </Button>
+                      </Navbar.Text>
+                    </Navbar.Collapse>
+                  </Container>
+                </Navbar>
+
                 {size.width < 600 ? (
                   <div
                     className="scrollBar"
