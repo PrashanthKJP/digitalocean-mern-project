@@ -24,7 +24,7 @@ import useWindowSize from "../coustomHook/useWindowSize";
 import { BiSearch } from "react-icons/bi";
 import { filterNumberFancy } from "../action/filterNumberAction";
 import { Helmet } from "react-helmet";
-// import "table/dist/SuperResponsiveTableStyle.css ";
+import ExcelJS from "exceljs";
 
 const FancyNumber = () => {
   const FancyNumberState = useSelector((state) => state.getAllNumberReducer);
@@ -149,6 +149,113 @@ const FancyNumber = () => {
     dispatch(filterNumberFancy(searchData));
   };
 
+  const exportExcelFile = () => {
+    const workbook = new ExcelJS.Workbook();
+    const sheet = workbook.addWorksheet("My Sheet");
+    sheet.properties.defaultRowHeight = 50;
+
+    sheet.getRow(1).border = {
+      top: { style: "thick", color: { argb: "FF808080" } }, // Black color
+      left: { style: "thick", color: { argb: "FF808080" } }, // Black color
+      bottom: { style: "thick", color: { argb: "FF808080" } }, // Black color
+      right: { style: "thick", color: { argb: "FF808080" } }, // Black color
+    };
+
+    sheet.getRow(1).fill = {
+      type: "pattern",
+      pattern: "solid",
+      fgColor: { argb: "ffff6347" }, // Red color
+    };
+
+    sheet.getRow(1).font = {
+      name: "Comic Sans MS",
+      family: 4,
+      size: 16,
+      bold: true,
+    };
+
+    sheet.columns = [
+      {
+        header: "_id",
+        key: "_id",
+        width: 20,
+      },
+      {
+        header: "number",
+        key: "number",
+        width: 20,
+      },
+      {
+        header: "newPrice",
+        key: "newPrice",
+        width: 20,
+      },
+      {
+        header: "oldPrice",
+        key: "oldPrice",
+        width: 20,
+      },
+      {
+        header: "oneTimeSum",
+        key: "oneTimeSum",
+        width: 15,
+      },
+      {
+        header: "secondTimeSum",
+        key: "secondTimeSum",
+        width: 15,
+      },
+      {
+        header: "thridTimeSum",
+        key: "thridTimeSum",
+        width: 15,
+      },
+      {
+        header: "currentUserId",
+        key: "currentUserId",
+        width: 15,
+      },
+
+      {
+        header: "category",
+        key: "category",
+        width: 25,
+      },
+      {
+        header: "createdAt",
+        key: "createdAt",
+        width: 20,
+      },
+    ];
+
+    letestNumber?.map(async (product, index) => {
+      sheet.addRow({
+        id: product?._id,
+        number: product?.number,
+        newPrice: product?.newPrice,
+        oldPrice: product?.oldPrice,
+        oneTimeSum: product?.oneTimeSum,
+        secondTimeSum: product?.secondTimeSum,
+        thridTimeSum: product?.thridTimeSum,
+        currentUserId: product?.currentUserId,
+        category: product?.category.map((item) => item),
+        createdAt: product?.createdAt,
+      });
+    });
+
+    workbook.xlsx.writeBuffer().then(function (data) {
+      const blob = new Blob([data], {
+        type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      });
+      const url = window.URL.createObjectURL(blob);
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = "download.xlsx";
+      anchor.click();
+      window.URL.revokeObjectURL(url);
+    });
+  };
+
   return (
     <>
       <Container fluid>
@@ -160,7 +267,17 @@ const FancyNumber = () => {
           />
         </Helmet>
 
-        <Navbar expand="lg"></Navbar>
+        <Navbar>
+          <Navbar.Brand>
+            Total {letestNumber?.length} No Fancy Number
+          </Navbar.Brand>
+          <Navbar.Toggle />
+          <Navbar.Collapse className="justify-content-end">
+            <Navbar.Text>
+              <Button onClick={exportExcelFile}>download excel</Button>
+            </Navbar.Text>
+          </Navbar.Collapse>
+        </Navbar>
 
         <Form className="d-flex mt-2" onSubmit={handleSubmitForFilterNumber}>
           <InputGroup className="mb-3">
