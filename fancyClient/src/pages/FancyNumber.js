@@ -268,9 +268,7 @@ const FancyNumber = () => {
         </Helmet>
 
         <Navbar>
-          <Navbar.Brand>
-            Total {letestNumber?.length} No Fancy Number
-          </Navbar.Brand>
+          <Navbar.Brand>Total {letestNumber?.length} Number</Navbar.Brand>
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
             <Navbar.Text>
