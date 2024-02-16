@@ -149,10 +149,6 @@ const FancyNumber = () => {
     dispatch(filterNumberFancy(searchData));
   };
 
-  const exportExcelFile = () => {
-    alert("wait for logic");
-  };
-
   return (
     <>
       <Container fluid>
@@ -164,20 +160,7 @@ const FancyNumber = () => {
           />
         </Helmet>
 
-        <Navbar expand="lg">
-          <Container>
-            <Navbar.Brand href="#home">
-              <Button onClick={exportExcelFile}>Download Excel</Button>
-            </Navbar.Brand>
-
-            <Navbar.Toggle />
-            <Navbar.Collapse className="justify-content-end">
-              <span style={{ fontWeight: "bold", margin: "auto" }}>
-                you have totally {letestNumber?.length} numbers
-              </span>
-            </Navbar.Collapse>
-          </Container>
-        </Navbar>
+        <Navbar expand="lg"></Navbar>
 
         <Form className="d-flex mt-2" onSubmit={handleSubmitForFilterNumber}>
           <InputGroup className="mb-3">
