@@ -24,10 +24,6 @@ const Orders = () => {
     setNewrOrder(reStartOrder);
   };
 
-  useEffect(() => {
-    dispatch(getAllOrders());
-  }, [dispatch]);
-
   return (
     <Container fluid>
       <Helmet>

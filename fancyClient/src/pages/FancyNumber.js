@@ -8,6 +8,7 @@ import {
   InputGroup,
   ListGroup,
   Modal,
+  Navbar,
   Row,
 } from "react-bootstrap";
 import { FaTrash } from "react-icons/fa";
@@ -21,8 +22,7 @@ import Error from "../components/Error";
 import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
 import useWindowSize from "../coustomHook/useWindowSize";
 import { BiSearch } from "react-icons/bi";
-import { filterNumber, filterNumberFancy } from "../action/filterNumberAction";
-import { useDebounce } from "../coustomHook/useDebounce";
+import { filterNumberFancy } from "../action/filterNumberAction";
 import { Helmet } from "react-helmet";
 // import "table/dist/SuperResponsiveTableStyle.css ";
 
@@ -149,11 +149,9 @@ const FancyNumber = () => {
     dispatch(filterNumberFancy(searchData));
   };
 
-  // dispatch(filterNumberFancy(deBouceValueForNumber));
-  useEffect(() => {
-    dispatch(getAllNumber());
-    console.log(numberDetails);
-  }, [dispatch, selectedItem, numberDetails]);
+  const exportExcelFile = () => {
+    alert("wait for logic");
+  };
 
   return (
     <>
@@ -165,6 +163,22 @@ const FancyNumber = () => {
             content="Unlock a lifetime of exclusivity with our premium Fancy Phone Numbers! Enquire now to reserve a unique, personalized mobile number that will be yours for a lifetime. Elevate your communication experience with a phone number that reflects your individuality. Stand out from the crowd and make a lasting impression. Enquire today and secure a fancy number that transcends time and trends!"
           />
         </Helmet>
+
+        <Navbar expand="lg">
+          <Container>
+            <Navbar.Brand href="#home">
+              <Button onClick={exportExcelFile}>Download Excel</Button>
+            </Navbar.Brand>
+
+            <Navbar.Toggle />
+            <Navbar.Collapse className="justify-content-end">
+              <span style={{ fontWeight: "bold", margin: "auto" }}>
+                you have totally {letestNumber?.length} numbers
+              </span>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
+
         <Form className="d-flex mt-2" onSubmit={handleSubmitForFilterNumber}>
           <InputGroup className="mb-3">
             <Form.Control

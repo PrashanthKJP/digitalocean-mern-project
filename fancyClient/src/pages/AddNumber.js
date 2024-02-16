@@ -77,7 +77,6 @@ const AddNumber = () => {
       splitNumber5,
     };
     dispatch(addNumber(data));
-    console.log("data in add", data);
   };
 
   const size = useWindowSize();

@@ -5,13 +5,24 @@ import FancyNumber from "./FancyNumber";
 import AddNumber from "./AddNumber";
 import Orders from "./Orders";
 import { Helmet } from "react-helmet";
+import { getAllUsers } from "../action/userAction";
+import { getAllNumber } from "../action/numberAction";
+import { getAllOrders } from "../action/orderAction";
+import { useDispatch } from "react-redux";
 
 const AdminPanel = () => {
   const [activeTab, setActiveTab] = useState("users");
+  const dispatch = useDispatch();
 
   const handleButtonClick = (tab) => {
     setActiveTab(tab);
   };
+
+  useEffect(() => {
+    dispatch(getAllUsers());
+    dispatch(getAllNumber());
+    dispatch(getAllOrders());
+  }, [dispatch]);
 
   return (
     <>

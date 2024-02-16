@@ -1,9 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { Button, Card, Container, ListGroup, Modal } from "react-bootstrap";
+import React, { useState } from "react";
+import {
+  Button,
+  Card,
+  Container,
+  ListGroup,
+  Modal,
+  Navbar,
+} from "react-bootstrap";
 import { FaTrash } from "react-icons/fa";
 import { FcViewDetails } from "react-icons/fc";
 import { useSelector, useDispatch } from "react-redux";
-import { getAllUsers, deleteUser } from "../action/userAction";
+import { deleteUser } from "../action/userAction";
 import { format } from "timeago.js";
 import Loading from "../components/Loading";
 import Error from "../components/Error";
@@ -13,7 +20,6 @@ const UserList = () => {
   const userState = useSelector((state) => state.getAllUsersReducer);
   const { loading, error, users } = userState;
   const [letestUser, setLetestUser] = useState(users && users);
-  const { currentUser } = useSelector((state) => state.loginUser);
 
   const [clickUser, setClickUser] = useState(null);
   const [show, setShow] = useState(false);
@@ -40,16 +46,28 @@ const UserList = () => {
     alert("you cannot delete Admin account");
   };
 
-  useEffect(() => {
-    dispatch(getAllUsers());
-  }, [dispatch, letestUser, getAllUsers]);
+  const exportExcelFile = () => {
+    alert("wait for logic..");
+  };
 
   return (
     <Container fluid>
+      <Navbar expand="lg">
+        <Container>
+          <Navbar.Brand href="#home">
+            <Button onClick={exportExcelFile}>Download Excel</Button>
+          </Navbar.Brand>
+
+          <Navbar.Toggle />
+          <Navbar.Collapse className="justify-content-end">
+            <span>you have totally {users.length} user</span>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
       <Table striped="columns">
         <Thead>
           <Tr>
-            <Th>S.NO</Th>
+            <Th>S.NO </Th>
             <Th>Name</Th>
             <Th>Date</Th>
             <Th>Action's</Th>

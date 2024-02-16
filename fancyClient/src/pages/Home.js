@@ -22,6 +22,9 @@ import DemoCard from "./DemoCard";
 import FloatingWhatsApp from "../components/FloatingWhatsApp";
 import { useDebounce } from "../coustomHook/useDebounce";
 import { Helmet } from "react-helmet";
+import { getAllUsers } from "../action/userAction";
+import { getAllNumber } from "../action/numberAction";
+import { getAllOrders } from "../action/orderAction";
 const ExcelJS = require("exceljs");
 
 const Home = ({ selectedSearchData, selectedSearchOptions }) => {
@@ -175,10 +178,10 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
     });
   };
   const highToLow = () => {
-    alert("High");
+    alert("Wait for logic");
   };
   const lowToHigh = () => {
-    alert("low");
+    alert("Wait for logic");
   };
 
   useEffect(() => {
@@ -429,20 +432,16 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
                       <Button onClick={exportExcelFile}>Download Excel</Button>
                     </Navbar.Brand>
 
-                    <Navbar.Toggle />
+                    {/* <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
-                      <Navbar.Text style={{ marginRight: "2vw" }}>
-                        <Button variant="danger" onClick={highToLow}>
-                          High to Low Number
-                        </Button>
-                      </Navbar.Text>
-                      <br />
-                      <Navbar.Text style={{ marginLeft: "2vw" }}>
-                        <Button variant="success" onClick={lowToHigh}>
-                          Low to High Number
-                        </Button>
-                      </Navbar.Text>
-                    </Navbar.Collapse>
+                      <Button variant="danger" onClick={highToLow}>
+                        High to Low Number
+                      </Button>
+
+                      <Button variant="success" onClick={lowToHigh}>
+                        Low to High Number
+                      </Button>
+                    </Navbar.Collapse> */}
                   </Container>
                 </Navbar>
 
