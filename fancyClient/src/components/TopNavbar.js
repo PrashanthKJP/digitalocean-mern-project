@@ -21,10 +21,11 @@ const TopNavbar = () => {
   return (
     <Navbar
       expand="lg"
-      // fixed="top"
       style={{
         boxShadow: "0px 0px 100px rgba(0, 0, 0, 0.5)",
-        backgroundColor: "#24925f",
+        background: "rgb(2,0,36)",
+        background:
+          "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(28,108,35,1) 0%, rgba(85,198,9,1) 46%, rgba(0,128,11,1) 100%);",
       }}
     >
       <div style={{ marginLeft: "20px" }}>
@@ -51,33 +52,42 @@ const TopNavbar = () => {
         </span>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-          <Nav className="align-items-center" style={{ fontWeight: "600" }}>
-            <LinkContainer to="/" activeStyle={{ color: "#fff" }}>
+          <Nav
+            className="align-items-center"
+            style={{ fontWeight: "600", fontSize: "20px" }}
+          >
+            <LinkContainer to="/" activeStyle={{ color: "green" }}>
               <Nav.Link>Home</Nav.Link>
             </LinkContainer>
-            <LinkContainer to="/about" activeStyle={{ color: "#fff" }}>
+            <LinkContainer to="/about" activeStyle={{ color: "green" }}>
               <Nav.Link>About-Us</Nav.Link>
             </LinkContainer>
-            <LinkContainer to="/enquiry" activeStyle={{ color: "#fff" }}>
+            <LinkContainer to="/enquiry" activeStyle={{ color: "green" }}>
               <Nav.Link>Enquiry</Nav.Link>
             </LinkContainer>
             {currentUser && currentUser.isAdmin && (
-              <LinkContainer to="/admin" activeStyle={{ color: "#fff" }}>
+              <LinkContainer to="/admin" activeStyle={{ color: "green" }}>
                 <Nav.Link>Admin-Page</Nav.Link>
               </LinkContainer>
             )}
 
             {currentUser ? (
-              <Button variant="light" onClick={() => dispatch(logoutUser())}>
+              <Button
+                variant="light"
+                size="lg"
+                onClick={() => dispatch(logoutUser())}
+              >
                 Logout
               </Button>
             ) : (
-              <LinkContainer to="/login" activeStyle={{ color: "#fff" }}>
-                <Button variant="light">Login</Button>
+              <LinkContainer to="/login" activeStyle={{ color: "green" }}>
+                <Button variant="light" size="lg">
+                  Login
+                </Button>
               </LinkContainer>
             )}
 
-            <LinkContainer to="cart" activeStyle={{ color: "#fff" }}>
+            <LinkContainer to="cart" activeStyle={{ color: "green" }}>
               <Nav.Link>
                 <BiSolidCartDownload
                   style={{ fontSize: "2.5rem", color: "black" }}

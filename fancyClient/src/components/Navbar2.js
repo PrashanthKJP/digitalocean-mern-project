@@ -100,12 +100,20 @@ const Navbar2 = ({ getNavbarSearchData }) => {
                 type="text"
                 placeholder="Search"
                 onChange={(e) => setSearchData(e.target.value)}
-                style={{ background: "rgba(0, 0, 0, 0.1)", border: "none" }}
+                style={{
+                  background: "rgba(0, 0, 0, 0.1)",
+                  border: "none",
+                  fontSize: "20px",
+                }}
               />
               <select
                 className="form-control"
                 onChange={(e) => setSelectedOptions(e.target.value)}
-                style={{ background: "rgba(0, 0, 0, 0.1)", border: "none" }}
+                style={{
+                  background: "rgba(0, 0, 0, 0.1)",
+                  border: "none",
+                  fontSize: "20px",
+                }}
               >
                 <option>Anyware</option>
                 <option>Start-with</option>
@@ -128,6 +136,8 @@ const Navbar2 = ({ getNavbarSearchData }) => {
         style={{
           width: `${size.width < 600 ? "100vw" : "30vw"}`,
           margin: "0px 10px",
+          padding: "10px",
+          fontSize: "20px",
         }}
         size={`${size.width < 600 ? "sm" : "md"}`}
       >
