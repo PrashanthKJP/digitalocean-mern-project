@@ -18,10 +18,10 @@ const AddNumber = () => {
 
   const dispatch = useDispatch();
 
-  const { currentUser } = useSelector((state) => state.loginUser);
+  // const { currentUser } = useSelector((state) => state.loginUser);
   const addNumberState = useSelector((state) => state.addNumberReducer);
   const { loading } = addNumberState;
-
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
   const getHandleChangeCheckedValue = (e) => {
     const { checked, name } = e.target;
     if (checked) {
@@ -68,7 +68,7 @@ const AddNumber = () => {
       oneTimeSum,
       secondTimeSum,
       thridTimeSum,
-      currentUserId: currentUser._id,
+      currentUserId: currentUser,
       category: selectedCategory,
       splitNumber1,
       splitNumber2,

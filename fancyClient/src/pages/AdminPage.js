@@ -9,6 +9,7 @@ import { getAllUsers } from "../action/userAction";
 import { getAllNumber } from "../action/numberAction";
 import { getAllOrders } from "../action/orderAction";
 import { useDispatch } from "react-redux";
+import AdminFormance from "./AdminFormance";
 
 const AdminPanel = () => {
   const [activeTab, setActiveTab] = useState("users");
@@ -34,8 +35,8 @@ const AdminPanel = () => {
         </Helmet>
 
         <Row>
-          <Col md={0} xs={2} style={{ paddingLeft: "1vw" }}>
-            <ButtonGroup vertical style={{ minHeight: "400px" }}>
+          <Col md={0} xs={2} style={{ paddingLeft: "0vw" }}>
+            <ButtonGroup vertical style={{ minHeight: "400px  " }}>
               <Button
                 onClick={() => handleButtonClick("users")}
                 variant={activeTab === "users" ? "dark" : "light"}
@@ -60,13 +61,29 @@ const AdminPanel = () => {
               >
                 Orders
               </Button>
+              <Button
+                onClick={() => handleButtonClick("productivity")}
+                variant={activeTab === "productivity" ? "dark" : "light"}
+              >
+                Admin Activity
+              </Button>
             </ButtonGroup>
           </Col>
-          <Col md={10} xs={10} style={{ overflow: "auto", maxHeight: "65vh" }}>
+          <Col
+            md={10}
+            xs={10}
+            style={{
+              overflow: "auto",
+              maxHeight: "65vh",
+              margin: 0,
+              padding: 20,
+            }}
+          >
             {activeTab === "users" && <UserList />}
             {activeTab === "fancyNumber" && <FancyNumber />}
             {activeTab === "addNumber" && <AddNumber />}
             {activeTab === "orders" && <Orders />}
+            {activeTab === "productivity" && <AdminFormance />}
           </Col>
         </Row>
       </Container>

@@ -23,7 +23,7 @@ const numberSchema = new mongoose.Schema(
       type: Number,
     },
     currentUserId: {
-      type: String,
+      type: Object,
     },
     category: {
       type: [String],

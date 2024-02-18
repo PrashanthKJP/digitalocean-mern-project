@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Button,
   Card,
@@ -785,6 +785,18 @@ const FancyNumber = () => {
           <Modal.Body>
             <Card style={{ width: "auto" }}>
               <ListGroup variant="flush">
+                <ListGroup.Item
+                  style={{ display: "flex", justifyContent: "space-around" }}
+                >
+                  <h6>Admin Name</h6>
+                  <h6>{numberDetails?.currentUserId?.name}</h6>
+                </ListGroup.Item>
+                <ListGroup.Item
+                  style={{ display: "flex", justifyContent: "space-around" }}
+                >
+                  <h6>Admin NO:-</h6>
+                  <h6>{numberDetails?.currentUserId?.number}</h6>
+                </ListGroup.Item>
                 <ListGroup.Item
                   style={{ display: "flex", justifyContent: "space-around" }}
                 >
