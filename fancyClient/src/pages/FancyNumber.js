@@ -247,10 +247,10 @@ const FancyNumber = () => {
       const blob = new Blob([data], {
         type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
       });
-      const url = window.URL.createObjectURL(blob);
+      const url = window.URL.createObjectURL(blob, "FancyNumbers.xlsx");
       const anchor = document.createElement("a");
       anchor.href = url;
-      anchor.download = "download.xlsx";
+      anchor.download = "FancyNumbers.xlsx";
       anchor.click();
       window.URL.revokeObjectURL(url);
     });

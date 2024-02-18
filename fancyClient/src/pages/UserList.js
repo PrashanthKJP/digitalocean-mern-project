@@ -102,7 +102,7 @@ const UserList = () => {
 
     letestUser?.map(async (product, index) => {
       sheet.addRow({
-        id: product?._id,
+        id: index + 1,
         name: product?.name,
         number: product?.number,
         isAdmin: product?.isAdmin,
@@ -114,10 +114,10 @@ const UserList = () => {
       const blob = new Blob([data], {
         type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
       });
-      const url = window.URL.createObjectURL(blob);
+      const url = window.URL.createObjectURL(blob, "Users.xlsx");
       const anchor = document.createElement("a");
       anchor.href = url;
-      anchor.download = "download.xlsx";
+      anchor.download = "Users.xlsx";
       anchor.click();
       window.URL.revokeObjectURL(url);
     });

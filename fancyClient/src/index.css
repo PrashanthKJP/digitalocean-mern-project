@@ -8,7 +8,7 @@ body {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  background: url("https://coolbackgrounds.io/images/backgrounds/index/ranger-4df6c1b6.png");
+  background: url(./images/BG.png);
   background-size: cover;
 }
 
@@ -241,6 +241,10 @@ body {
   border-top-width: 8px;
   border-color: rgb(108, 4, 4);
   animation: rotate3 2s linear infinite;
+}
+
+.form-control-margin {
+  margin-bottom: 20px; /* Adjust this value according to your preference */
 }
 
 @keyframes rotate1 {
