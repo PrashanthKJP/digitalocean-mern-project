@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   Button,
   Card,
@@ -15,7 +15,7 @@ import { FaTrash } from "react-icons/fa";
 import { FcViewDetails } from "react-icons/fc";
 import { AiFillEdit } from "react-icons/ai";
 import { useSelector, useDispatch } from "react-redux";
-import { deleteNumber, editNumber, getAllNumber } from "../action/numberAction";
+import { deleteNumber, editNumber } from "../action/numberAction";
 import { format } from "timeago.js";
 import Loading from "../components/Loading";
 import Error from "../components/Error";
@@ -176,8 +176,8 @@ const FancyNumber = () => {
 
     sheet.columns = [
       {
-        header: "_id",
-        key: "_id",
+        header: "id",
+        key: "id",
         width: 20,
       },
       {

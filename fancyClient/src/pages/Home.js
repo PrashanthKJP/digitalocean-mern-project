@@ -23,6 +23,7 @@ import FloatingWhatsApp from "../components/FloatingWhatsApp";
 import { useDebounce } from "../coustomHook/useDebounce";
 import { Helmet } from "react-helmet";
 import ExcelJS from "exceljs";
+import { getAllUsers } from "../action/userAction";
 
 const Home = ({ selectedSearchData, selectedSearchOptions }) => {
   const [numerology, setNumerology] = useState("");
@@ -87,6 +88,113 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
     "fancy phone number",
   ];
 
+  const exportExcelFile = () => {
+    const workbook = new ExcelJS.Workbook();
+    const sheet = workbook.addWorksheet("My Sheet");
+    sheet.properties.defaultRowHeight = 50;
+
+    sheet.getRow(1).border = {
+      top: { style: "thick", color: { argb: "FF808080" } }, // Black color
+      left: { style: "thick", color: { argb: "FF808080" } }, // Black color
+      bottom: { style: "thick", color: { argb: "FF808080" } }, // Black color
+      right: { style: "thick", color: { argb: "FF808080" } }, // Black color
+    };
+
+    sheet.getRow(1).fill = {
+      type: "pattern",
+      pattern: "solid",
+      fgColor: { argb: "ffff6347" }, // Red color
+    };
+
+    sheet.getRow(1).font = {
+      name: "Comic Sans MS",
+      family: 4,
+      size: 16,
+      bold: true,
+    };
+
+    sheet.columns = [
+      {
+        header: "id",
+        key: "id",
+        width: 20,
+      },
+      {
+        header: "number",
+        key: "number",
+        width: 20,
+      },
+      {
+        header: "newPrice",
+        key: "newPrice",
+        width: 20,
+      },
+      {
+        header: "oldPrice",
+        key: "oldPrice",
+        width: 20,
+      },
+      {
+        header: "oneTimeSum",
+        key: "oneTimeSum",
+        width: 15,
+      },
+      {
+        header: "secondTimeSum",
+        key: "secondTimeSum",
+        width: 15,
+      },
+      {
+        header: "thridTimeSum",
+        key: "thridTimeSum",
+        width: 15,
+      },
+      {
+        header: "currentUserId",
+        key: "currentUserId",
+        width: 15,
+      },
+
+      {
+        header: "category",
+        key: "category",
+        width: 25,
+      },
+      {
+        header: "createdAt",
+        key: "createdAt",
+        width: 20,
+      },
+    ];
+
+    filterNumbers?.map(async (product, index) => {
+      sheet.addRow({
+        id: product?._id,
+        number: product?.number,
+        newPrice: product?.newPrice,
+        oldPrice: product?.oldPrice,
+        oneTimeSum: product?.oneTimeSum,
+        secondTimeSum: product?.secondTimeSum,
+        thridTimeSum: product?.thridTimeSum,
+        currentUserId: product?.currentUserId,
+        category: product?.category.map((item) => item),
+        createdAt: product?.createdAt,
+      });
+    });
+
+    workbook.xlsx.writeBuffer().then(function (data) {
+      const blob = new Blob([data], {
+        type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      });
+      const url = window.URL.createObjectURL(blob);
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = "download.xlsx";
+      anchor.click();
+      window.URL.revokeObjectURL(url);
+    });
+  };
+
   useEffect(() => {
     dispatch(filterNumber(queryString));
   }, [
@@ -102,8 +210,8 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
     <div>
       <div>
         <Helmet>
-          {metaData.map((item) => (
-            <title> {item} </title>
+          {metaData.map((item, i) => (
+            <title key={i}> {item} </title>
           ))}
 
           <meta
@@ -116,6 +224,17 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
           <Container fluid>
             <Row>
               <Col md={3}>
+                <Navbar>
+                  <Navbar.Brand>
+                    Total {filterNumbers?.length} Number
+                  </Navbar.Brand>
+                  <Navbar.Toggle />
+                  <Navbar.Collapse className="justify-content-end">
+                    <Navbar.Text>
+                      <Button onClick={exportExcelFile}>download excel</Button>
+                    </Navbar.Text>
+                  </Navbar.Collapse>
+                </Navbar>
                 {size.width > 600 ? (
                   <Card
                     style={{

@@ -80,23 +80,23 @@ At Lifetime Number, our operations are driven by a team of young, talented, and 
             content="Empower your business leaders with Life Time Fancy Numbers for People. Elevate the professional image of your company holders with personalized mobile identities that reflect authority and distinction. Each fancy number tells a story of corporate excellence, enhancing communication and leaving a lasting impression. Explore our premium collection and provide your company leaders with a unique digital signature. Transform your corporate identity—enquire now and secure a lifetime of distinction for your key personnel."
           />
         </Helmet>
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12 text-center">
-              <h2 class="section-title">The Team Behind Pacifico</h2>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12 text-center">
+              <h2 className="section-title">The Team Behind Pacifico</h2>
 
-              <p class="section-subtitle">{message}</p>
+              <p className="section-subtitle">{message}</p>
             </div>
 
-            <div class="col-sm-6 col-md-6">
-              <div class="team-item">
+            <div className="col-sm-6 col-md-6">
+              <div className="team-item">
                 <img
                   src={vinayaka}
-                  class="team-img"
+                  className="team-img"
                   alt="fancy number team member"
                 />
                 <h3>Vinayaka KJ</h3>
-                <div class="team-info">
+                <div className="team-info">
                   <p>Head of SEO</p>
                 </div>
                 <p>
@@ -107,17 +107,17 @@ At Lifetime Number, our operations are driven by a team of young, talented, and 
               </div>
             </div>
 
-            <div class="col-sm-6 col-md-6">
-              <div class="team-item">
+            <div className="col-sm-6 col-md-6">
+              <div className="team-item">
                 <img
                   src={Prashanth}
-                  class="team-img"
+                  className="team-img"
                   alt="fancy number team member"
                 />
 
                 <h3>Prashanth KJ</h3>
 
-                <div class="team-info">
+                <div className="team-info">
                   <p>Developer</p>
                 </div>
 
