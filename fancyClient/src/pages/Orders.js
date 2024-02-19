@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteOrder, getAllOrders } from "../action/orderAction";
+import { deleteOrder } from "../action/orderAction";
 import { FaTrash } from "react-icons/fa";
 import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
 import Loading from "../components/Loading";

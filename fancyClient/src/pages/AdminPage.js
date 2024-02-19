@@ -5,7 +5,6 @@ import FancyNumber from "./FancyNumber";
 import AddNumber from "./AddNumber";
 import Orders from "./Orders";
 import { Helmet } from "react-helmet";
-import { getAllUsers } from "../action/userAction";
 import { getAllNumber } from "../action/numberAction";
 import { getAllOrders } from "../action/orderAction";
 import { useDispatch } from "react-redux";
@@ -21,7 +20,6 @@ const AdminPanel = () => {
 
   useEffect(() => {
     dispatch(getAllNumber());
-    dispatch(getAllUsers());
     dispatch(getAllOrders());
   }, [dispatch]);
 

@@ -83,6 +83,7 @@ const filterNumbers = async (req, res) => {
       startPrice,
       endPrice,
       category,
+      page, // New parameter for pagination
     } = req.query;
 
     let query = {};
@@ -136,7 +137,12 @@ const filterNumbers = async (req, res) => {
       query.category = { $in: category };
     }
 
-    const response = await numberModal.find(query);
+    // Pagination
+    const pageNumber = parseInt(page) || 1; // Default to page 1 if not provided
+    const pageSize = 30; // Limit of 30 data per page
+    const skip = (pageNumber - 1) * pageSize;
+
+    const response = await numberModal.find(query).skip(skip).limit(pageSize);
 
     if (response.length < 1) {
       return res.status(200).json({ message: "No Data" });
@@ -148,6 +154,86 @@ const filterNumbers = async (req, res) => {
     console.log(error);
   }
 };
+
+// const filterNumbers = async (req, res) => {
+//   try {
+//     const {
+//       startWith,
+//       endWith,
+//       anyWare,
+//       mustContain,
+//       notContain,
+//       oneTimeSum,
+//       secondTimeSum,
+//       thridTimeSum,
+//       startPrice,
+//       endPrice,
+//       category,
+//     } = req.query;
+
+//     let query = {};
+
+//     if (startWith) {
+//       query.number = {
+//         ...query.number,
+//         $regex: `^${startWith}`,
+//         $options: "i",
+//       };
+//     }
+
+//     if (endWith) {
+//       query.number = { ...query.number, $regex: `${endWith}$`, $options: "i" };
+//     }
+
+//     if (anyWare) {
+//       query.number = { ...query.number, $regex: anyWare, $options: "i" };
+//     }
+
+//     if (mustContain) {
+//       query.number = { ...query.number, $regex: mustContain, $options: "i" };
+//     }
+
+//     if (notContain) {
+//       query.number = {
+//         ...query.number,
+//         $not: { $regex: notContain, $options: "i" },
+//       };
+//     }
+
+//     if (oneTimeSum) {
+//       query.oneTimeSum = { $in: oneTimeSum };
+//     }
+//     if (secondTimeSum) {
+//       query.secondTimeSum = { $in: secondTimeSum };
+//     }
+
+//     if (thridTimeSum) {
+//       query.thridTimeSum = { $in: thridTimeSum };
+//     }
+
+//     if (startPrice && endPrice) {
+//       query.$and = [
+//         { newPrice: { $gte: startPrice } },
+//         { newPrice: { $lte: endPrice } },
+//       ];
+//     }
+
+//     if (category) {
+//       query.category = { $in: category };
+//     }
+
+//     const response = await numberModal.find(query);
+
+//     if (response.length < 1) {
+//       return res.status(200).json({ message: "No Data" });
+//     }
+
+//     res.status(200).json(response);
+//   } catch (error) {
+//     res.status(500).json({ message: "something went wrong" });
+//     console.log(error);
+//   }
+// };
 
 const filterNumbersInFancy = async (req, res) => {
   try {

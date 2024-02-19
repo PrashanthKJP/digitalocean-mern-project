@@ -43,6 +43,10 @@ const numberSchema = new mongoose.Schema(
     splitNumber5: {
       type: Number,
     },
+    page: {
+      type: Number,
+      default: 1,
+    },
   },
   { timestamps: true }
 );

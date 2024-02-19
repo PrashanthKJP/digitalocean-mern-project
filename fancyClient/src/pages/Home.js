@@ -31,6 +31,17 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
   const [startValue, setStartValue] = useState(0);
   const [endValue, setEndValue] = useState(500000);
   const [show, setShow] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const nextPage = () => {
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
+
+  const prevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage((prevPage) => prevPage - 1);
+    }
+  };
 
   const size = useWindowSize();
   const dispatch = useDispatch();
@@ -73,6 +84,7 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
     startPrice: deBouceValueForPriceRange[0] || "",
     endPrice: deBouceValueForPriceRange[1] || "",
     category: selectedCategory || "",
+    page: currentPage,
   };
 
   const queryString = Object.keys(queryParams)
@@ -205,6 +217,7 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
     selectedSearchData,
     queryString,
     selectedCategory,
+    currentPage,
   ]);
 
   return (
@@ -449,6 +462,18 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
                 )}
               </Col>
               <Col md={9}>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-around",
+                    alignItems: "center",
+                  }}
+                >
+                  <Button onClick={prevPage} disabled={currentPage === 1}>
+                    Previous Page
+                  </Button>
+                  <Button onClick={nextPage}>Next Page</Button>
+                </div>
                 {size.width < 600 ? (
                   <div
                     className="scrollBar"
@@ -493,6 +518,18 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
                         )))}
                   </div>
                 )}
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-around",
+                    alignItems: "center",
+                  }}
+                >
+                  <Button onClick={prevPage} disabled={currentPage === 1}>
+                    Previous Page
+                  </Button>
+                  <Button onClick={nextPage}>Next Page</Button>
+                </div>
               </Col>
             </Row>
           </Container>
