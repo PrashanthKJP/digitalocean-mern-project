@@ -213,12 +213,7 @@ const UserList = () => {
                 <h6>number</h6>
                 <h6>{clickUser?.number}</h6>
               </ListGroup.Item>
-              <ListGroup.Item
-                style={{ display: "flex", justifyContent: "space-around" }}
-              >
-                <h6>password</h6>
-                <h6>{clickUser?.password}</h6>
-              </ListGroup.Item>
+
               <ListGroup.Item
                 style={{ display: "flex", justifyContent: "space-around" }}
               >
