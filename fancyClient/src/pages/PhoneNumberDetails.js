@@ -1,11 +1,6 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row, Card, Navbar } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import DemoCard from "./DemoCard";
-import { BASE_URL } from "../service/helper";
-import { addToCart } from "../action/cartAction";
-import { useDispatch } from "react-redux";
 import useWindowSize from "../coustomHook/useWindowSize";
 import { Helmet } from "react-helmet";
 
@@ -20,8 +15,6 @@ const PhoneNumberDetails = () => {
   const [sevenNumber, setSevenNumber] = useState(false);
   const [eightNumber, setEightNumber] = useState(false);
   const [nineNumber, setNineNumber] = useState(false);
-
-  const dispatch = useDispatch();
 
   const zeroIndexShow = () => {
     setZeroNumber(true);
@@ -154,19 +147,6 @@ const PhoneNumberDetails = () => {
   };
 
   const { id } = useParams();
-
-  const [data, setData] = useState(null);
-
-  const getData = async (id) => {
-    const res = await axios.get(`${BASE_URL}/api/getSingleNumber/${id}`);
-    setData(res.data);
-  };
-  getData(id);
-
-  const addToCarthandler = (item) => {
-    dispatch(addToCart(item.newPrice, item.number, item.oldPrice, item._id));
-    // notify();
-  };
 
   const size = useWindowSize();
 

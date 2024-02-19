@@ -197,6 +197,7 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
 
   useEffect(() => {
     dispatch(filterNumber(queryString));
+    dispatch(getAllUsers());
   }, [
     dispatch,
     numerology,

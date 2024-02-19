@@ -20,8 +20,8 @@ const AdminPanel = () => {
   };
 
   useEffect(() => {
-    dispatch(getAllUsers());
     dispatch(getAllNumber());
+    dispatch(getAllUsers());
     dispatch(getAllOrders());
   }, [dispatch]);
 
