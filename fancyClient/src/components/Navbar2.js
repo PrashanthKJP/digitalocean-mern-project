@@ -87,7 +87,10 @@ const Navbar2 = ({ getNavbarSearchData }) => {
   useEffect(() => {}, [selectedOptions, searchData]);
 
   return (
-    <Navbar expand="lg">
+    <Navbar
+      expand="lg"
+      style={{ boxShadow: "rgba(0, 0, 0, 0.05) 0px 0px 5px" }}
+    >
       <Container fluid>
         <Navbar.Brand href="#home">
           <img src={logo} alt="VIP FANCY PHONE NUMBER" height="42" />
@@ -136,7 +139,7 @@ const Navbar2 = ({ getNavbarSearchData }) => {
         style={{
           width: `${size.width < 600 ? "100vw" : "30vw"}`,
           margin: "0px 10px",
-          padding: "10px",
+          padding: "5px",
           fontSize: "20px",
         }}
         size={`${size.width < 600 ? "sm" : "md"}`}
@@ -146,7 +149,11 @@ const Navbar2 = ({ getNavbarSearchData }) => {
 
       {size.width < 600 && cartState.cartItems.length > 0 ? (
         <Link to="/cart">
-          <Button variant="outline-primary" size="sm">
+          <Button
+            variant="outline-primary"
+            size="sm"
+            style={{ marginTop: "2px" }}
+          >
             {` ${cartState.cartItems.length || 0} Item Added`}
           </Button>
         </Link>

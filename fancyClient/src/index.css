@@ -37,10 +37,15 @@ body {
 
 .card-title {
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1.8rem !important;
   text-align: center;
-  color: black !important;
+  color: white !important;
+  text-shadow: 1px 1px 3px black;
+  &:hover {
+    color: rgb(24, 255, 251) !important;
+  }
 }
+
 .card-details {
   font-weight: 700;
   font-style: italic;
@@ -152,6 +157,13 @@ body {
 @media (max-width: 768px) {
   .category-checkboxes {
     margin-top: 2vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .card-title {
+    font-size: 1.1rem !important;
+    /* text-shadow: 2px 2px black; */
   }
 }
 
@@ -424,3 +436,12 @@ ul.team-icon li a.dribble {
 }
 
 /* category */
+
+.checkbox {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.form-check-input {
+  border: 1px solid black !important;
+}

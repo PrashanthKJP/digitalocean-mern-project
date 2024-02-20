@@ -183,8 +183,8 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
         oneTimeSum: product?.oneTimeSum,
         secondTimeSum: product?.secondTimeSum,
         thridTimeSum: product?.thridTimeSum,
-        currentUserId: product?.currentUserId,
         category: product?.category.map((item) => item),
+        createdAt: product?.createdAt,
       });
     });
 
@@ -192,10 +192,10 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
       const blob = new Blob([data], {
         type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
       });
-      const url = window.URL.createObjectURL(blob);
+      const url = window.URL.createObjectURL(blob, "FancyNumbers.xlsx");
       const anchor = document.createElement("a");
       anchor.href = url;
-      anchor.download = "download.xlsx";
+      anchor.download = "FancyNumbers.xlsx";
       anchor.click();
       window.URL.revokeObjectURL(url);
     });
@@ -232,17 +232,17 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
           <Container fluid>
             <Row>
               <Col md={3}>
-                <Navbar>
+                {/* <Navbar>
                   <Navbar.Brand>
                     Total {filterNumbers?.length} Number
                   </Navbar.Brand>
                   <Navbar.Toggle />
                   <Navbar.Collapse className="justify-content-end">
                     <Navbar.Text>
-                      <Button onClick={exportExcelFile}>download excel</Button>
+                      <Button onClick={exportExcelFile}>Export Excel</Button>
                     </Navbar.Text>
                   </Navbar.Collapse>
-                </Navbar>
+                </Navbar> */}
                 {size.width > 600 ? (
                   <Card
                     style={{
@@ -334,7 +334,10 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
                             />
                           </div>
                         </div>
-                        <Category getCategoryFunction={getCategoryFunction} />
+                        <Category
+                          getCategoryFunction={getCategoryFunction}
+                          handleClose={handleClose}
+                        />
                       </Card.Text>
                     </Card.Body>
                   </Card>
@@ -437,6 +440,7 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
                             </div>
                             <Category
                               getCategoryFunction={getCategoryFunction}
+                              handleClose={handleClose}
                             />
                           </Card.Text>
                         </Card.Body>
@@ -461,12 +465,13 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
                     display: "flex",
                     justifyContent: "space-around",
                     alignItems: "center",
+                    margin: "5px",
                   }}
                 >
-                  <Button onClick={prevPage} disabled={currentPage === 1}>
+                  {/* <Button onClick={prevPage} disabled={currentPage === 1}>
                     Previous Page
                   </Button>
-                  <Button onClick={nextPage}>Next Page</Button>
+                  <Button onClick={nextPage}>Next Page</Button> */}
                 </div>
                 {size.width < 600 ? (
                   <div

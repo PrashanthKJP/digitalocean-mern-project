@@ -30,7 +30,7 @@ const Carousels = () => {
           alt="Second slide"
           style={{
             height: `${size.width < 600 ? "20vh" : "40vh"}`,
-            borderRadius: "5vh",
+            borderRadius: "2vh",
             padding: `${size.width < 600 ? 0 : 10}`,
           }}
         />
@@ -46,7 +46,7 @@ const Carousels = () => {
           alt="Third slide"
           style={{
             height: `${size.width < 600 ? "20vh" : "40vh"}`,
-            borderRadius: "5vh",
+            borderRadius: "2vh",
             padding: `${size.width < 600 ? 0 : 10}`,
           }}
         />
