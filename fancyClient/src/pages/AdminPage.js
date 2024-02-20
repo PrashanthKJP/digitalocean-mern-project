@@ -12,16 +12,20 @@ import AdminFormance from "./AdminFormance";
 
 const AdminPanel = () => {
   const [activeTab, setActiveTab] = useState("users");
+  const [pageNo, setPageNo] = useState(1);
   const dispatch = useDispatch();
 
   const handleButtonClick = (tab) => {
     setActiveTab(tab);
   };
+  const getData = (data) => {
+    setPageNo(data);
+  };
 
   useEffect(() => {
-    dispatch(getAllNumber());
+    dispatch(getAllNumber(pageNo));
     dispatch(getAllOrders());
-  }, [dispatch]);
+  }, [dispatch, pageNo]);
 
   return (
     <>
@@ -78,7 +82,7 @@ const AdminPanel = () => {
             }}
           >
             {activeTab === "users" && <UserList />}
-            {activeTab === "fancyNumber" && <FancyNumber />}
+            {activeTab === "fancyNumber" && <FancyNumber getData={getData} />}
             {activeTab === "addNumber" && <AddNumber />}
             {activeTab === "orders" && <Orders />}
             {activeTab === "productivity" && <AdminFormance />}

@@ -172,16 +172,11 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
         key: "category",
         width: 25,
       },
-      {
-        header: "createdAt",
-        key: "createdAt",
-        width: 20,
-      },
     ];
 
     filterNumbers?.map(async (product, index) => {
       sheet.addRow({
-        id: product?._id,
+        id: index + 1,
         number: product?.number,
         newPrice: product?.newPrice,
         oldPrice: product?.oldPrice,
@@ -190,7 +185,6 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
         thridTimeSum: product?.thridTimeSum,
         currentUserId: product?.currentUserId,
         category: product?.category.map((item) => item),
-        createdAt: product?.createdAt,
       });
     });
 
