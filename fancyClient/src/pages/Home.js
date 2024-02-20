@@ -238,7 +238,7 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
           <Container fluid>
             <Row>
               <Col md={3}>
-                <Navbar>
+                {/* <Navbar>
                   <Navbar.Brand>
                     Total {filterNumbers?.length} Number
                   </Navbar.Brand>
@@ -248,7 +248,7 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
                       <Button onClick={exportExcelFile}>Export Excel</Button>
                     </Navbar.Text>
                   </Navbar.Collapse>
-                </Navbar>
+                </Navbar> */}
                 {size.width > 600 ? (
                   <Card
                     style={{
@@ -340,7 +340,10 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
                             />
                           </div>
                         </div>
-                        <Category getCategoryFunction={getCategoryFunction} />
+                        <Category
+                          getCategoryFunction={getCategoryFunction}
+                          handleClose={handleClose}
+                        />
                       </Card.Text>
                     </Card.Body>
                   </Card>
@@ -443,6 +446,7 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
                             </div>
                             <Category
                               getCategoryFunction={getCategoryFunction}
+                              handleClose={handleClose}
                             />
                           </Card.Text>
                         </Card.Body>

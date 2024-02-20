@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 
-const Category = ({ getCategoryFunction }) => {
+const Category = ({ getCategoryFunction, handleClose }) => {
   const [selectedOption, setSelectedOption] = useState(null);
 
   const handleCheckboxChange = (type) => {
     setSelectedOption(type);
+    handleClose();
   };
   useEffect(() => {
     getCategoryFunction(selectedOption);
@@ -23,13 +24,14 @@ const Category = ({ getCategoryFunction }) => {
           style={{
             fontWeight: "600",
             fontStyle: "italic",
-            fontSize: "18px",
+            fontSize: "30px",
             marginBottom: "15px",
           }}
         >
           Category
         </Form.Label>
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-WITHOUT 2,4 & 8"
           label="WITHOUT 2,4 & 8"
@@ -38,6 +40,7 @@ const Category = ({ getCategoryFunction }) => {
           value={selectedOption}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-HIGH RANGE NUMBER"
           label="HIGH RANGE NUMBER"
@@ -46,6 +49,7 @@ const Category = ({ getCategoryFunction }) => {
           value={selectedOption}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-MIRROR NUMBER"
           label="MIRROR NUMBER"
@@ -53,6 +57,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("MIRROR NUMBER")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-SEMI-MIRROR NUMBER"
           label="SEMI-MIRROR NUMBER"
@@ -60,6 +65,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("SEMI-MIRROR NUMBER")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-XY-XY-XY-XY"
           label="XY-XY-XY-XY"
@@ -67,6 +73,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("XY-XY-XY-XY")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-SYMMETRY NUMBER"
           label="SYMMETRY NUMBER"
@@ -74,6 +81,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("SYMMETRY NUMBER")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-FANCY NUMBER"
           label="FANCY NUMBER"
@@ -81,6 +89,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("FANCY NUMBER")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-LOW COST NUMBERS"
           label="LOW COST NUMBERS"
@@ -88,6 +97,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("LOW COST NUMBERS")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-DOUBLING NUMBER"
           label="DOUBLING NUMBER"
@@ -95,6 +105,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("DOUBLING NUMBER")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-ENDING XY-XY-XY"
           label="ENDING XY-XY-XY"
@@ -102,6 +113,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("ENDING XY-XY-XY")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-MIDDLE XY-XY-XY"
           label="MIDDLE XY-XY-XY"
@@ -109,6 +121,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("MIDDLE XY-XY-XY")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-STARTING XY-XY-XY"
           label="STARTING XY-XY-XY"
@@ -116,6 +129,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("STARTING XY-XY-XY")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-ABCD-XY-ABCD"
           label="ABCD-XY-ABCD"
@@ -123,6 +137,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("ABCD-XY-ABCD")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-COUNTING NUMBER"
           label="COUNTING NUMBER"
@@ -130,6 +145,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("COUNTING NUMBER")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-STARTING XYZ-XYZ"
           label="STARTING XYZ-XYZ"
@@ -137,6 +153,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("STARTING XYZ-XYZ")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-ENDING XYZ-XYZ"
           label="ENDING XYZ-XYZ"
@@ -144,6 +161,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("ENDING XYZ-XYZ")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-SPECIAL DIGIT NUMBER"
           label="SPECIAL DIGIT NUMBER"
@@ -151,6 +169,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("SPECIAL DIGIT NUMBER")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-XY-XY"
           label="XY-XY"
@@ -158,6 +177,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("XY-XY")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-XYXY-ABAB"
           label="XYXY-ABAB"
@@ -165,6 +185,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("XYXY-ABAB")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-3 DIGIT NUMBER"
           label="3 DIGIT NUMBER"
@@ -172,6 +193,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("3 DIGIT NUMBER")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-2 DIGIT NUMBER"
           label="2 DIGIT NUMBER"
@@ -179,6 +201,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("2 DIGIT NUMBER")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-XXX-YYY"
           label="XXX-YYY"
@@ -186,6 +209,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("XXX-YYY")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-ABCD-ABCD"
           label="ABCD-ABCD"
@@ -193,6 +217,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("ABCD-ABCD")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-786 SPECIAL"
           label="786 SPECIAL"
@@ -200,6 +225,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("786 SPECIAL")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-00X00 & 00XY00"
           label="00X00 & 00XY00"
@@ -207,6 +233,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("00X00 & 00XY00")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-ENDING HEXA"
           label="ENDING HEXA"
@@ -214,6 +241,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("ENDING HEXA")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-MIDDLE HEXA"
           label="MIDDLE HEXA"
@@ -221,6 +249,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("MIDDLE HEXA")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-ENDING PENTA"
           label="ENDING PENTA"
@@ -228,6 +257,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("ENDING PENTA")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-MIDDLE PENTA"
           label="MIDDLE PENTA"
@@ -235,6 +265,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("MIDDLE PENTA")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-ENDING TETRA"
           label="ENDING TETRA"
@@ -242,6 +273,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("ENDING TETRA")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-MIDDLE TETRA"
           label="MIDDLE TETRA"
@@ -249,6 +281,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("MIDDLE TETRA")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-ENDING XXX"
           label="ENDING XXX"
@@ -256,6 +289,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("ENDING XXX")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-000000 NUMBERS"
           label="000000 NUMBERS"
@@ -263,6 +297,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("000000 NUMBERS")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-00000 NUMBERS"
           label="00000 NUMBERS"
@@ -270,6 +305,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("00000 NUMBERS")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-ENDING 0000"
           label="ENDING 0000"
@@ -277,6 +313,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("ENDING 0000")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-ENDING 0000X"
           label="ENDING 0000X"
@@ -284,6 +321,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("ENDING 0000X")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-ENDING 0000XY"
           label="ENDING 0000XY"
@@ -291,6 +329,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("ENDING 0000XY")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-MIDDLE 0000"
           label="MIDDLE 0000"
@@ -298,6 +337,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("MIDDLE 0000")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-ENDING 000"
           label="ENDING 000"
@@ -305,6 +345,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("ENDING 000")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-ENDING 000X"
           label="ENDING 000X"
@@ -312,6 +353,7 @@ const Category = ({ getCategoryFunction }) => {
           onChange={() => handleCheckboxChange("ENDING 000X")}
         />
         <Form.Check
+          className="checkbox"
           type="checkbox"
           id="check-api-ENDING 000XY"
           label="ENDING 000XY"

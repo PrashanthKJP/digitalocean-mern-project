@@ -149,7 +149,11 @@ const Navbar2 = ({ getNavbarSearchData }) => {
 
       {size.width < 600 && cartState.cartItems.length > 0 ? (
         <Link to="/cart">
-          <Button variant="outline-primary" size="sm">
+          <Button
+            variant="outline-primary"
+            size="sm"
+            style={{ marginTop: "2px" }}
+          >
             {` ${cartState.cartItems.length || 0} Item Added`}
           </Button>
         </Link>

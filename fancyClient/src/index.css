@@ -436,3 +436,12 @@ ul.team-icon li a.dribble {
 }
 
 /* category */
+
+.checkbox {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.form-check-input {
+  border: 1px solid black !important;
+}
