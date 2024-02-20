@@ -181,16 +181,16 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
 
     filterNumbers?.map(async (product, index) => {
       sheet.addRow({
-        id: product?._id,
+        id: index + 1,
         number: product?.number,
         newPrice: product?.newPrice,
         oldPrice: product?.oldPrice,
         oneTimeSum: product?.oneTimeSum,
         secondTimeSum: product?.secondTimeSum,
         thridTimeSum: product?.thridTimeSum,
-        currentUserId: product?.currentUserId,
         category: product?.category.map((item) => item),
-        createdAt: product?.createdAt,
+        // currentUserId: product?.currentUserId,
+        // createdAt: product?.createdAt,
       });
     });
 
@@ -198,10 +198,10 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
       const blob = new Blob([data], {
         type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
       });
-      const url = window.URL.createObjectURL(blob);
+      const url = window.URL.createObjectURL(blob, "FancyNumbers.xlsx");
       const anchor = document.createElement("a");
       anchor.href = url;
-      anchor.download = "download.xlsx";
+      anchor.download = "FancyNumbers.xlsx";
       anchor.click();
       window.URL.revokeObjectURL(url);
     });
@@ -245,7 +245,7 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
                   <Navbar.Toggle />
                   <Navbar.Collapse className="justify-content-end">
                     <Navbar.Text>
-                      <Button onClick={exportExcelFile}>download excel</Button>
+                      <Button onClick={exportExcelFile}>Export Excel</Button>
                     </Navbar.Text>
                   </Navbar.Collapse>
                 </Navbar>
@@ -467,12 +467,13 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
                     display: "flex",
                     justifyContent: "space-around",
                     alignItems: "center",
+                    margin: "5px",
                   }}
                 >
-                  <Button onClick={prevPage} disabled={currentPage === 1}>
+                  {/* <Button onClick={prevPage} disabled={currentPage === 1}>
                     Previous Page
                   </Button>
-                  <Button onClick={nextPage}>Next Page</Button>
+                  <Button onClick={nextPage}>Next Page</Button> */}
                 </div>
                 {size.width < 600 ? (
                   <div

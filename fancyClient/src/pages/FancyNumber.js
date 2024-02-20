@@ -272,7 +272,7 @@ const FancyNumber = () => {
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
             <Navbar.Text>
-              <Button onClick={exportExcelFile}>download excel</Button>
+              <Button onClick={exportExcelFile}>Export Excel</Button>
             </Navbar.Text>
           </Navbar.Collapse>
         </Navbar>
