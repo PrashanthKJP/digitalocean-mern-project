@@ -66,15 +66,15 @@ const DemoCard = ({ item, actions, width }) => {
               style={{ fontSize: `${size.width < 600 ? "2.8vw" : "auto"}` }}
             >
               <span>
-                SUM-TOTAL :- {item.oneTimeSum} + {item.secondTimeSum}
+                SUM-TOTAL :- {item.oneTimeSum} = {item.secondTimeSum}
                 {item.thridTimeSum ? ` + ${item.thridTimeSum}` : ""}
               </span>
             </div>
-            <div className="view-details">
+            {/* <div className="view-details">
               <Link to={`/details/${item._id}`} className="view-details-link">
                 View Details
               </Link>
-            </div>
+            </div> */}
           </Card.Text>
           <div
             className="price-section"
@@ -101,8 +101,9 @@ const DemoCard = ({ item, actions, width }) => {
                 variant="success"
                 className="buy-now-button"
                 onClick={() => actions(item)}
+                size="sm"
                 style={{
-                  fontSize: `${size.width < 600 ? "2.4vw" : "auto"}`,
+                  fontSize: `${size.width < 600 ? "2.6vw" : "1.1vw"}`,
                 }}
               >
                 Buy Now
@@ -113,7 +114,7 @@ const DemoCard = ({ item, actions, width }) => {
               className="add-to-cart-button"
               onClick={() => actions(item)}
               style={{
-                fontSize: `${size.width < 600 ? "2.4vw" : "auto"}`,
+                fontSize: `${size.width < 600 ? "2.6vw" : "1.1vw"}`,
                 // maxWidth: "30vw",
               }}
             >

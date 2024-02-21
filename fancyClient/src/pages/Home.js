@@ -68,6 +68,7 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
     setSelectedCategory("");
     setStartValue(0);
     setEndValue(500000);
+    handleClose();
   };
 
   const queryParams = {
@@ -270,10 +271,14 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
                         SEARCH OPTIONS
                         <Button
                           onClick={handleClearFilter}
-                          style={{ marginLeft: "2vw" }}
-                          variant="warning"
+                          // style={{  }}
+                          variant="success"
+                          style={{
+                            fontSize: `${size.width < 600 ? "2.6vw" : "16px"}`,
+                            marginLeft: "2vw",
+                          }}
                         >
-                          Clear filter
+                          Clear Filter
                         </Button>
                       </Card.Title>
                       <hr />
@@ -282,7 +287,7 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
                           style={{
                             fontWeight: "600",
                             fontStyle: "italic",
-                            fontSize: "15px",
+                            fontSize: "25px",
                             marginBottom: "5px",
                           }}
                         >
@@ -300,7 +305,7 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
                           style={{
                             fontWeight: "600",
                             fontStyle: "italic",
-                            fontSize: "15px",
+                            fontSize: "25px",
                             marginBottom: "5px",
                           }}
                         >
@@ -312,11 +317,12 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
                             style={{
                               width: "100%",
                               marginBottom: "1vw",
+                              fontSize: "20px",
                             }}
                             variant={`success `}
                             disabled
                           >
-                            set-range
+                            Set Range
                           </Button>
                           <div
                             style={{
@@ -324,16 +330,25 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
                               justifyContent: "space-between",
                               alignItems: "center",
                               marginBottom: "10px",
+                              fontSize: "22px",
                             }}
                           >
                             <input
-                              style={{ width: "45%", textAlign: "center" }}
+                              style={{
+                                width: "45%",
+                                textAlign: "center",
+                                height: "40px",
+                              }}
                               value={startValue}
                               onChange={(e) => setStartValue(e.target.value)}
                               placeholder={startValue}
                             />
                             <input
-                              style={{ width: "45%", textAlign: "center" }}
+                              style={{
+                                width: "45%",
+                                textAlign: "center",
+                                height: "40px",
+                              }}
                               value={endValue}
                               onChange={(e) => setEndValue(e.target.value)}
                               placeholder={endValue}
@@ -365,14 +380,22 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
                               fontSize: "15px",
                             }}
                           >
-                            SEARCH OPTIONS
+                            <span
+                              style={{
+                                color: "purple",
+                                fontSize: "20px",
+                                textShadow: "1px 0px white",
+                              }}
+                            >
+                              SEARCH OPTIONS
+                            </span>
                             <Button
                               onClick={handleClearFilter}
-                              style={{ marginLeft: "15vw" }}
+                              style={{ marginLeft: "8vw" }}
                               variant="warning"
-                              size="sm"
+                              size="md"
                             >
-                              clear all filter
+                              Clear All Filter
                             </Button>
                           </Card.Title>
                           <hr />
@@ -528,6 +551,7 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
                     display: "flex",
                     justifyContent: "space-around",
                     alignItems: "center",
+                    margin: "20px 0px",
                   }}
                 >
                   <Button onClick={prevPage} disabled={currentPage === 1}>
