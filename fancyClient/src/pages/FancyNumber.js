@@ -230,7 +230,7 @@ const FancyNumber = () => {
 
     letestNumber?.map(async (product, index) => {
       sheet.addRow({
-        id: product?._id,
+        id: index + 1,
         number: product?.number,
         newPrice: product?.newPrice,
         oldPrice: product?.oldPrice,

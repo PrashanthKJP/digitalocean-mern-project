@@ -173,11 +173,6 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
         key: "category",
         width: 25,
       },
-      {
-        header: "createdAt",
-        key: "createdAt",
-        width: 20,
-      },
     ];
 
     filterNumbers?.map(async (product, index) => {
@@ -190,8 +185,7 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
         secondTimeSum: product?.secondTimeSum,
         thridTimeSum: product?.thridTimeSum,
         category: product?.category.map((item) => item),
-        // currentUserId: product?.currentUserId,
-        // createdAt: product?.createdAt,
+        createdAt: product?.createdAt,
       });
     });
 
