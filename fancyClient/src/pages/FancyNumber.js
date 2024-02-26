@@ -237,7 +237,7 @@ const FancyNumber = () => {
         oneTimeSum: product?.oneTimeSum,
         secondTimeSum: product?.secondTimeSum,
         thridTimeSum: product?.thridTimeSum,
-        currentUserId: product?.currentUserId,
+        currentUserId: product?.currentUserId?.name,
         category: product?.category.map((item) => item),
         createdAt: product?.createdAt,
       });
