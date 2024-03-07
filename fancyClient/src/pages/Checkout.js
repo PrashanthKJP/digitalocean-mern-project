@@ -4,13 +4,12 @@ import Loading from "../components/Loading";
 import GradiantButton from "../HOC/GradiantButton";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { loginUser, registerUser } from "../action/userAction";
+import { loginUserInCart, registerUserInCart } from "../action/userAction";
 import { useDispatch, useSelector } from "react-redux";
 import Success from "../components/Success";
 import Error from "../components/Error";
 import dateFormat from "dateformat";
 import { addOrder } from "../action/orderAction";
-import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
 const Checkout = () => {
@@ -40,19 +39,16 @@ const Checkout = () => {
       password,
     };
     if (name) {
-      dispatch(registerUser(data));
+      dispatch(registerUserInCart(data));
     } else {
-      dispatch(loginUser(data));
+      dispatch(loginUserInCart(data));
     }
-
-    setTimeout(() => {
-      window.location.href = "/";
-    }, 2000);
   };
 
   const notify = () => toast("Our client will contact within 24 Hour");
 
   const getCartItems = JSON.parse(localStorage.getItem("cartItems"));
+  const presentUser = JSON.parse(localStorage.getItem("currentUser"));
 
   const handleConfirmClick = () => {
     notify();
@@ -74,6 +70,7 @@ const Checkout = () => {
   return (
     <div style={{ height: "100vh" }}>
       <Container fluid>
+        {!presentUser && <h4>user not found pleass refresh page</h4>}
         <Helmet>
           <title>Permanent VIP Fancy Numbers Checkout</title>
           <meta

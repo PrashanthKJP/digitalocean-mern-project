@@ -17,6 +17,21 @@ export const registerUser = (data) => async (dispatch) => {
     dispatch({ type: "USER_REGISTER_FAIL", payload: error });
   }
 };
+export const registerUserInCart = (data) => async (dispatch) => {
+  dispatch({ type: "USER_REGISTER_REQUEST" });
+  try {
+    const res = await axios.post(`${BASE_URL}/api/register`, data);
+    dispatch({ type: "USER_REGISTER_SUCCESS", payload: res.data });
+    if (res.data) {
+      localStorage.setItem("currentUser", JSON.stringify(res.data));
+    }
+    setTimeout(() => {
+      window.location.href = `/`;
+    }, 2000);
+  } catch (error) {
+    dispatch({ type: "USER_REGISTER_FAIL", payload: error });
+  }
+};
 
 export const loginUser = (user) => async (dispatch) => {
   dispatch({ type: "USER_LOGIN_REQUEST" });
@@ -26,6 +41,19 @@ export const loginUser = (user) => async (dispatch) => {
     localStorage.setItem("currentUser", JSON.stringify(res.data));
     setTimeout(() => {
       window.location.href = `/`;
+    }, 2000);
+  } catch (error) {
+    dispatch({ type: "USER_LOGIN_FAIL", payload: error });
+  }
+};
+export const loginUserInCart = (user) => async (dispatch) => {
+  dispatch({ type: "USER_LOGIN_REQUEST" });
+  try {
+    const res = await axios.post(`${BASE_URL}/api/users/login`, user);
+    dispatch({ type: "USER_LOGIN_SUCCESS", payload: res.data });
+    localStorage.setItem("currentUser", JSON.stringify(res.data));
+    setTimeout(() => {
+      window.location.href = `/checkout`;
     }, 2000);
   } catch (error) {
     dispatch({ type: "USER_LOGIN_FAIL", payload: error });
