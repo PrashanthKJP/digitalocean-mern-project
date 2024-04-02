@@ -71,6 +71,21 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
     handleClose();
   };
 
+  const [highToLowDisable, sethighToLowDisable] = useState(false);
+  const [lowToHighDisable, setLowToHighDisable] = useState(false);
+  const [priceRange, setPriceRange] = useState("");
+
+  const handleHighToLow = () => {
+    sethighToLowDisable(true);
+    setLowToHighDisable(false);
+    setPriceRange("highToLow");
+  };
+  const handleLowToHigh = () => {
+    sethighToLowDisable(false);
+    setLowToHighDisable(true);
+    setPriceRange("lowToHigh");
+  };
+
   const queryParams = {
     startWith: selectedSearchOptions === "Start-with" ? selectedSearchData : "",
     endWith: selectedSearchOptions === "End-with" ? selectedSearchData : "",
@@ -86,6 +101,7 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
     endPrice: deBouceValueForPriceRange[1] || "",
     category: selectedCategory || "",
     page: currentPage,
+    sort: priceRange || "",
   };
 
   const queryString = Object.keys(queryParams)
@@ -490,55 +506,97 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
                     alignItems: "center",
                     margin: "5px",
                   }}
-                >
-                  {/* <Button onClick={prevPage} disabled={currentPage === 1}>
-                    Previous Page
-                  </Button>
-                  <Button onClick={nextPage}>Next Page</Button> */}
-                </div>
+                ></div>
                 {size.width < 600 ? (
-                  <div
-                    className="scrollBar"
-                    style={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                      width: "100vw",
-                    }}
-                  >
-                    {error && <Error error="Error While Fetching Number" />}
-                    {(loading && <Loading loading={loading} />) ||
-                      (filterNumbers &&
-                        filterNumbers.map((item, index) => (
-                          <div key={index}>
-                            <DemoCard
-                              item={item}
-                              actions={() => addToCarthandler(item)}
-                            />
-                          </div>
-                        )))}
-                  </div>
+                  <>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-around",
+                        alignItems: "center",
+                      }}
+                    >
+                      <Button
+                        onClick={handleHighToLow}
+                        disabled={highToLowDisable}
+                      >
+                        High To Low
+                      </Button>
+                      <Button
+                        onClick={handleLowToHigh}
+                        disabled={lowToHighDisable}
+                      >
+                        Low To High
+                      </Button>
+                    </div>
+                    <div
+                      className="scrollBar"
+                      style={{
+                        display: "flex",
+                        flexWrap: "wrap",
+                        width: "100vw",
+                      }}
+                    >
+                      {error && <Error error="Error While Fetching Number" />}
+                      {(loading && <Loading loading={loading} />) ||
+                        (filterNumbers &&
+                          filterNumbers.map((item, index) => (
+                            <div key={index}>
+                              <DemoCard
+                                item={item}
+                                actions={() => addToCarthandler(item)}
+                              />
+                            </div>
+                          )))}
+                    </div>
+                  </>
                 ) : (
-                  <div
-                    className="scrollBar"
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-around",
-                      alignItems: "flex-start",
-                      flexWrap: "wrap",
-                    }}
-                  >
-                    {error && <Error error="Error While Fetching Number" />}
-                    {(loading && <Loading loading={loading} />) ||
-                      (filterNumbers &&
-                        filterNumbers.map((item, index) => (
-                          <div key={index}>
-                            <DemoCard
-                              item={item}
-                              actions={() => addToCarthandler(item)}
-                            />
-                          </div>
-                        )))}
-                  </div>
+                  <>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-around",
+                        alignItems: "center",
+                      }}
+                    >
+                      <Button
+                        onClick={handleHighToLow}
+                        disabled={highToLowDisable}
+                        variant="danger"
+                      >
+                        High Range Number's
+                      </Button>
+                      <Button
+                        onClick={handleLowToHigh}
+                        disabled={lowToHighDisable}
+                        variant="success"
+                      >
+                        Low Range Number's
+                      </Button>
+                    </div>
+
+                    <div
+                      className="scrollBar"
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-around",
+                        alignItems: "flex-start",
+                        flexWrap: "wrap",
+                      }}
+                    >
+                      {error && <Error error="Error While Fetching Number" />}
+                      {(loading && <Loading loading={loading} />) ||
+                        (filterNumbers &&
+                          filterNumbers.map((item, index) => (
+                            <div key={index}>
+                              <DemoCard
+                                item={item}
+                                actions={() => addToCarthandler(item)}
+                              />
+                            </div>
+                          )))}
+                    </div>
+                  </>
                 )}
                 <div
                   style={{

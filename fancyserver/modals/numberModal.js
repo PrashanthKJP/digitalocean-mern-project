@@ -47,6 +47,9 @@ const numberSchema = new mongoose.Schema(
       type: Number,
       default: 1,
     },
+    sort: {
+      type: String,
+    },
   },
   { timestamps: true }
 );
