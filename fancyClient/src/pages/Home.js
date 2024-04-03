@@ -519,14 +519,16 @@ const Home = ({ selectedSearchData, selectedSearchOptions }) => {
                       <Button
                         onClick={handleHighToLow}
                         disabled={highToLowDisable}
+                        variant="danger"
                       >
-                        High To Low
+                        High Range Number's
                       </Button>
                       <Button
                         onClick={handleLowToHigh}
                         disabled={lowToHighDisable}
+                        variant="success"
                       >
-                        Low To High
+                        Low Range Number's
                       </Button>
                     </div>
                     <div
